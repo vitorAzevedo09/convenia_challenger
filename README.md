@@ -105,7 +105,7 @@ De maneira que estas informações alimentem meu sistema pessoal
 
 * Como pode perceber, não há um botão "calcular", todos cálculos devem ser reativos
 * Apesar de estar aberto a REST, preferimos GraphQL 😉
-* Avaliaremos sua organização quanto a SASS e BEM
+* Apreciamos o uso de alguma metodológia CSS (BEM, RSCSS, ou qualquer outra) 
 * Avaliaremos como organizará a requisição para conversão de moeda
 * A partir do apresentado, você pode incrementar a aplicação como quiser
 * Você tem 1(uma) semana para realizar a avaliação
