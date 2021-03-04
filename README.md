@@ -14,6 +14,8 @@ Que tenha um excelente desenvolvimento :wink:
 > O total da conta pode ser em USD(Dólar) ou EUR(Euro).
 > Deve ser exibido a conversão para BRL(R$), obtida via chamada (REST ou GraphQL)
 
+Dica: você pode usar qualquer API gratuita para obter a conversão de moedas, como o [SWOP](https://swop.cx/)
+
 ### User Story
 
 ```gherkin
