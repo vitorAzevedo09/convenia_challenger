@@ -7,12 +7,13 @@
 
 <style scoped lang="sass">
 $font-stack: 'Avenir', Helvetica, Arial, sans-serif
-$primary-color: #9D11F4
+$primary-color: #A200FF
 
 #app
   position: absolute
   left: 0px
   top: -9vh
+  color: $primary-color
   font-family: $font-stack
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
