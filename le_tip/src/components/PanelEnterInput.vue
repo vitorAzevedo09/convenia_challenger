@@ -1,10 +1,16 @@
 <template>
-  <div class="valor">Valor: $ <input type="number" /></div>
+  <div class="valor">
+    Valor: $ <input type="number" v-model="tipEntry.payValue" />
+  </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "PanelEnterInput",
+  computed: {
+    ...mapState(["tipEntry"]),
+  },
 };
 </script>
 

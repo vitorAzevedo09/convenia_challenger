@@ -2,7 +2,7 @@
   <div class="check_row">
     <div class="euro">EURO</div>
     <div class="button b2" id="check_button">
-      <input type="checkbox" class="checkbox" />
+      <input type="checkbox" v-model="tipEntry.boolCurrency" class="checkbox" />
       <div class="knobs"></div>
       <div class="layer"></div>
     </div>
@@ -11,8 +11,12 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "PanelEnterSwitch",
+  computed: {
+    ...mapState(["tipEntry"]),
+  },
 };
 </script>
 

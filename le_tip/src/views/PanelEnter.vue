@@ -7,10 +7,18 @@
       <PanelEnterInput />
     </div>
     <div class="row">
-      <PanelEnterSlider :title="'Gorjeta'" :range="{ min: 10, max: 20 }" />
+      <PanelEnterSlider
+        @updateValue="tipEntry.tipPercentage = $event"
+        :title="'Gorjeta'"
+        :range="{ min: 10, max: 20 }"
+      />
     </div>
     <div class="row">
-      <PanelEnterSlider :title="'Pessoas'" :range="{ min: 2, max: 16 }" />
+      <PanelEnterSlider
+        @updateValue="tipEntry.personsTable = $event"
+        :title="'Pessoas'"
+        :range="{ min: 2, max: 16 }"
+      />
     </div>
   </div>
 </template>
@@ -19,12 +27,17 @@
 import PanelEnterSwitch from "@/components/PanelEnterSwitch.vue";
 import PanelEnterInput from "@/components/PanelEnterInput.vue";
 import PanelEnterSlider from "@/components/PanelEnterSlider.vue";
+import { mapState } from "vuex";
+
 export default {
   name: "PanelEnter",
   components: {
     PanelEnterSwitch,
     PanelEnterInput,
     PanelEnterSlider,
+  },
+  computed: {
+    ...mapState(["tipEntry"]),
   },
 };
 </script>

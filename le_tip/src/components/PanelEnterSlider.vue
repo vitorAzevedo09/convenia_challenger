@@ -7,7 +7,7 @@
         type="range"
         :min="range.min"
         :max="range.max"
-        value="50"
+        v-model="value"
         class="slider"
         id="myRange"
       />
@@ -20,6 +20,16 @@
 export default {
   name: "PanelEnterSlider",
   props: ["title", "range"],
+  data() {
+    return {
+      value: 0,
+    };
+  },
+  watch: {
+    value: function () {
+      this.$emit("updateValue", this.value);
+    },
+  },
 };
 </script>
 

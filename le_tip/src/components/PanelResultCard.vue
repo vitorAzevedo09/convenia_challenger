@@ -8,12 +8,12 @@
 <script>
 export default {
   name: "PanelResultCard",
-  props: ["title", "value"],
+  props: ["title", "value", "language", "currency"],
   computed: {
     money: function () {
-      return new Intl.NumberFormat("pt-BR", {
+      return new Intl.NumberFormat(this.language, {
         style: "currency",
-        currency: "BRL",
+        currency: this.currency,
       }).format(this.value);
     },
   },

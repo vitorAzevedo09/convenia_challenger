@@ -1,28 +1,26 @@
 <template>
   <div class="result_panel">
-    <div v-for="(card, i) in results_cards" :key="i" class="row">
-      <PanelResultCard :title="card.title" :value="card.value" />
+    <div v-for="(card, i) in results" :key="i" class="row">
+      <PanelResultCard
+        :title="card.title"
+        :value="card.value"
+        :currency="card.title === 'em R$' ? 'BRL' : acronymCurrency"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import PanelResultCard from "@/components/PanelResultCard.vue";
+import { mapState, mapGetters } from "vuex";
 export default {
   name: "PanelResult",
   components: {
     PanelResultCard,
   },
-  data: () => {
-    return {
-      results_cards: [
-        { title: "Conta", value: 7.23 },
-        { title: "Gorjeta", value: 9.2 },
-        { title: "em R$", value: 57.56 },
-        { title: "por Pessoa", value: 8.28 },
-        { title: "em R$", value: 57.56 },
-      ],
-    };
+  computed: {
+    ...mapState(["tipEntry"]),
+    ...mapGetters(["acronymCurrency", "results"]),
   },
 };
 </script>

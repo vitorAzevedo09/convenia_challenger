@@ -3,7 +3,7 @@
     <div class="container" :style="display ? '' : 'width: 90vw; left: 5%'">
       <div class="title">
         <img src="@/assets/logo.png" />
-        <strong class="title_text">Le Tips</strong>
+        <strong class="title_text">Le Tip</strong>
       </div>
       <div class="card" v-if="display">
         <div class="enter_panel"><PanelEnter /></div>
