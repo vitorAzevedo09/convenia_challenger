@@ -2,7 +2,7 @@
   <div class="slider_row">
     <div class="title">{{ title }}: 13%</div>
     <div>
-      10
+      {{ range.min }}
       <input
         type="range"
         :min="range.min"
@@ -11,7 +11,7 @@
         class="slider"
         id="myRange"
       />
-      20
+      {{ range.max }}
     </div>
   </div>
 </template>

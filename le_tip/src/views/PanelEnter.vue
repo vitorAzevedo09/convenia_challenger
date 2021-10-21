@@ -10,7 +10,7 @@
       <PanelEnterSlider :title="'Gorjeta'" :range="{ min: 10, max: 20 }" />
     </div>
     <div class="row">
-      <PanelEnterSlider :title="'Pessoas'" :range="{ min: 10, max: 20 }" />
+      <PanelEnterSlider :title="'Pessoas'" :range="{ min: 2, max: 16 }" />
     </div>
   </div>
 </template>
