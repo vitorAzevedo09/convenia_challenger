@@ -8,11 +8,14 @@
 <style scoped lang="sass">
 $font-stack: 'Avenir', Helvetica, Arial, sans-serif
 $primary-color: #A200FF
+$secondary-color: #FF3FA4
 
 #app
-  position: absolute
-  left: 0px
-  top: -9vh
+  position: relative
+  width: 99.5vw
+  height: 120vh
+  left: -1vw
+  top: -10vh
   color: $primary-color
   font-family: $font-stack
   -webkit-font-smoothing: antialiased
@@ -20,6 +23,4 @@ $primary-color: #A200FF
   text-align: center
   background: $primary-color
   margin-top: 60px
-  width: 100vw
-  height: 100vh
 </style>
