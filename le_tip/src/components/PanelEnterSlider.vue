@@ -1,6 +1,8 @@
 <template>
   <div class="slider_row">
-    <div class="title">{{ title }}: 13%</div>
+    <div class="title">
+      {{ title }}: {{ value }} <span v-if="boolPercentage">%</span>
+    </div>
     <div>
       {{ range.min }}
       <input
@@ -17,9 +19,10 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "PanelEnterSlider",
-  props: ["title", "range"],
+  props: ["title", "range", "boolPercentage"],
   data() {
     return {
       value: 0,
@@ -29,6 +32,9 @@ export default {
     value: function () {
       this.$emit("updateValue", this.value);
     },
+  },
+  computed: {
+    ...mapState(["tipEntry"]),
   },
 };
 </script>

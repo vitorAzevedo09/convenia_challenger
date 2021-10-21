@@ -1,6 +1,9 @@
 <template>
   <div class="card">
-    <div class="title">{{ title }}:</div>
+    <div class="title">
+      <strong>{{ title }}</strong
+      >:
+    </div>
     <div class="value">{{ money }}</div>
   </div>
 </template>

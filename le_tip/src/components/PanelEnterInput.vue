@@ -1,6 +1,7 @@
 <template>
   <div class="valor">
-    Valor: $ <input type="number" v-model="tipEntry.payValue" />
+    Valor: <span v-if="tipEntry.boolCurrency">$ </span> <span v-else>€ </span
+    ><input type="number" v-model="tipEntry.payValue" />
   </div>
 </template>
 

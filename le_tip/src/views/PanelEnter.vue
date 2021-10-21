@@ -10,6 +10,7 @@
       <PanelEnterSlider
         @updateValue="tipEntry.tipPercentage = $event"
         :title="'Gorjeta'"
+        :boolPercentage="true"
         :range="{ min: 10, max: 20 }"
       />
     </div>
