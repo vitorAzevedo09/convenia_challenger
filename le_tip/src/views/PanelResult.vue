@@ -27,24 +27,26 @@ export default {
     ...mapState(["tipEntry"]),
     ...mapGetters(["acronymCurrency", "perPerson", "results"]),
     valueBRL: function () {
-      return this.quote * this.perPerson;
+      let q;
+      let pp = this.perPerson;
+      if (this.quotes === undefined) q = [{ quote: 0 }, { quote: 0 }];
+      else q = this.quotes;
+      return this.tipEntry.boolCurrency
+        ? pp * (q[0].quote / q[1].quote)
+        : pp * q[0].quote;
     },
   },
   apollo: {
-    quote: {
+    quotes: {
       query: gql`
-        query Convertion($baseCurrency: String!) {
-          latest(baseCurrency: $baseCurrency, quoteCurrencies: ["BRL"]) {
+        query Convertion {
+          latest(baseCurrency: "EUR", quoteCurrencies: ["BRL", "USD"]) {
+            quoteCurrency
             quote
           }
         }
       `,
-      update: (data) => data.latest[0].quote,
-      variables() {
-        return {
-          baseCurrency: this.acronymCurrency,
-        };
-      },
+      update: (data) => data.latest,
     },
   },
 };
