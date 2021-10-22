@@ -12,7 +12,8 @@ Vue.use(VueApollo);
 const AUTH_TOKEN = "apollo-token";
 
 // Http endpoint
-const httpEndpoint = 'https://swop.cx/graphql?api-key=73d6ea7ff1c47a5bae3c502ee3c47c9eec6ad328623775369b10d31ff8574749';
+const httpEndpoint =
+  "https://swop.cx/graphql?api-key=73d6ea7ff1c47a5bae3c502ee3c47c9eec6ad328623775369b10d31ff8574749";
 
 // Config
 const defaultOptions = {
@@ -20,16 +21,11 @@ const defaultOptions = {
   httpEndpoint,
   // You can use `wss` for secure connection (recommended in production)
   // Use `null` to disable subscriptions
-  wsEndpoint: process.env.VUE_APP_GRAPHQL_WS || "ws://localhost:4000/graphql",
+  wsEndpoint: null,
   // LocalStorage token
   tokenName: AUTH_TOKEN,
   // Enable Automatic Query persisting with Apollo Engine
   persisting: false,
-  // Use websockets for everything (no HTTP)
-  // You need to pass a `wsEndpoint` for this to work
-  websocketsOnly: false,
-  // Is being rendered on the server?
-  ssr: false,
 
   // Override default apollo link
   // note: don't override httpLink here, specify httpLink options in the

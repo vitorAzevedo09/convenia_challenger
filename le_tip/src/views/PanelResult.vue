@@ -25,9 +25,9 @@ export default {
   },
   computed: {
     ...mapState(["tipEntry"]),
-    ...mapGetters(["acronymCurrency", "results"]),
+    ...mapGetters(["acronymCurrency", "perPerson", "results"]),
     valueBRL: function () {
-      return this.quote;
+      return this.quote * this.perPerson;
     },
   },
   apollo: {
@@ -39,6 +39,7 @@ export default {
           }
         }
       `,
+      update: (data) => data.latest[0].quote,
       variables() {
         return {
           baseCurrency: this.acronymCurrency,
