@@ -4,7 +4,6 @@
   </div>
 </template>
 
-
 <style scoped lang="sass">
 $font-stack: 'Avenir', Helvetica, Arial, sans-serif
 $primary-color: #A200FF
