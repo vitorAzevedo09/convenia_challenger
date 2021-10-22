@@ -13,7 +13,7 @@ const AUTH_TOKEN = "apollo-token";
 
 // Http endpoint
 const httpEndpoint =
-  "https://swop.cx/graphql?api-key=73d6ea7ff1c47a5bae3c502ee3c47c9eec6ad328623775369b10d31ff8574749";
+  "https://swop.cx/graphql?api-key=56132eaead48a4add8692447428d48359254d9c182f489817543586e02fba73e";
 
 // Config
 const defaultOptions = {
