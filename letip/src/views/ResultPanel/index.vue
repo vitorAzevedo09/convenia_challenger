@@ -1,11 +1,12 @@
 <template>
   <div>
-    ICON FACTORY
+    Result View
   </div>
 </template>
 
 <script>
 export default {
+
 }
 </script>
 
