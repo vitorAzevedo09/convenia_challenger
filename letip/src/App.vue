@@ -19,8 +19,10 @@
         <result-panel class="panel" />
       </div>
 
-      <button class="button" @click="() => view = !view">View {{ view ? 'Results' : 'Calculator'
-      }}</button>
+      <button v-if="isMobile" class="button" @click="() => view = !view">
+        <font-awesome-icon icon="fa-solid fa-circle-arrow-right" v-if="view" />
+        <font-awesome-icon icon="fa-solid fa-circle-arrow-left" v-else />
+      </button>
       <footer class=" footer">
         <img src="./assets/imgs/coin-stacked.gif" class="footer__image" />
       </footer>
@@ -122,7 +124,6 @@ body {
 
   &__content {
     display: flex;
-    height: 100%;
     justify-content: center;
     align-items: center;
 
@@ -166,26 +167,25 @@ body {
 }
 
 .button {
-  background-color: $eucalyptus-color;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: $eucalyptus-color;
+  border: 1px solid $eucalyptus-color;
+  border-radius: 50%;
+  margin-left: 60%;
   color: white;
-  padding: 0.4em;
-  border: 2px solid $eucalyptus-color;
-  border-radius: 1em;
   text-align: center;
-  display: inline-block;
-  font-size: 1em;
-  margin: auto;
-  transition-duration: 0.4s;
+  font-size: 1.2em;
+  z-index: 100;
+  box-shadow: 0 10px 25px -5px rgba(44, 179, 240, 0.6);
   cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
 
-  &:hover {
-    background-color: $eucalyptus-color;
-    color: white;
-  }
-
-  @include lg {
-    display: none
-  }
+@include lg {
+  display: none
 }
 
 
