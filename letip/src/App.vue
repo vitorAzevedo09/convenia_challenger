@@ -8,13 +8,13 @@
         <h3 class="app__subtitle">Because tip should be easier</h3>
       </div>
 
-      <div class="app__content--mobile">
+      <div class="app__content--mobile" v-if="isMobile">
         <transition name="slide-fade">
           <input-panel v-if="view" class="panel" />
           <result-panel v-else class="panel" />
         </transition>
       </div>
-      <div class="app__content--desktop">
+      <div class="app__content--desktop" v-else>
         <input-panel class="panel" />
         <result-panel class="panel" />
       </div>
@@ -38,15 +38,28 @@ export default {
     ResultPanel
   },
   data: () => ({
-    view: true
+    view: true,
+    windowWidth: 0
   }),
+  created() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
+      this.windowWidth = window.innerWidth
+    })
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize);
+  },
+
+  methods: {
+    onResize() {
+      this.windowWidth = window.innerWidth
+    }
+  },
   computed: {
     isMobile() {
-      if (screen.width <= 760) {
-        return true
-      } else {
-        return false
-      }
+      return this.windowWidth < 992 ? true : false
     }
   }
 }
