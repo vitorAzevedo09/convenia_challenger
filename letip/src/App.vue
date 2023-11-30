@@ -30,14 +30,8 @@ export default {
 <style lang="scss">
 @import '../node_modules/typeface-roboto/index.css';
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import './assets/css/variables.scss';
 
-// Split-Complementary Palette Gold Coin Color: HEX #E1B530 / RGB (225, 181, 48)
-
-$coin-color: #E1B530;
-$eucalyptus-color: #30E1B5;
-$purple-x11: #B530E1;
-$white: #eee;
-$main-brand-color: $coin-color;
 
 body {
   background: url("./assets/imgs/coin-rain-slower.gif") 0 0;
