@@ -9,8 +9,12 @@
       </div>
       <div class="app__content">
         <input-panel />
-        <result-panel />
+        <result-panel v-if="!isMobile" />
       </div>
+
+      <footer class=" footer">
+        <img src="./assets/imgs/coin-stacked.gif" class="footer__image" />
+      </footer>
     </div>
   </div>
 </template>
@@ -23,6 +27,18 @@ export default {
   components: {
     InputPanel,
     ResultPanel
+  },
+  data: () => ({
+    currentView: 'result'
+  }),
+  computed: {
+    isMobile() {
+      if (screen.width <= 760) {
+        return true
+      } else {
+        return false
+      }
+    }
   }
 }
 </script>
@@ -31,6 +47,7 @@ export default {
 @import '../node_modules/typeface-roboto/index.css';
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
 @import './assets/css/variables.scss';
+@import './assets/css/breakpoints.scss';
 
 
 body {
@@ -40,7 +57,7 @@ body {
   overflow: hidden;
   font-family: "Roboto";
   color: $main-brand-color;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 
@@ -57,17 +74,23 @@ body {
   justify-content: center;
 
   &__wrapper {
+
     background-color: $white;
     padding: 2%;
     display: flex;
     align-items: center;
     height: 70%;
-    width: 50%;
+    width: 80%;
     border-radius: 5%;
     align-items: center;
     flex-flow: column;
     align-items: center;
     justify-content: center;
+
+    @include sm {
+      width: 40%;
+    }
+
   }
 
   &__header {
@@ -87,5 +110,17 @@ body {
 
 .title__icon {
   color: #e1b530;
+}
+
+.footer {
+  display: flex;
+  flex-flow: column;
+
+  &__image {
+
+    height: 6em;
+
+
+  }
 }
 </style>

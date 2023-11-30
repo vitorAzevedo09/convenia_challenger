@@ -1,56 +1,67 @@
 <template>
-  <div>
+  <div class="input_panel">
     <form action="">
       <label for="input__checkbox" class="toggle">
         <div class="toggle_text">EUR</div><input id="input__checkbox" type="checkbox" class="toggle-input" />
         <div class="toggle-control"></div>
         <div class="toggle_text">USD</div>
       </label>
-      <label for="input_value" class="money">
-        <span class="money__title">Value: $ <input type="number" class="money__input"></span>
+      <label for="money_value" class="money">
+        <span class="money__title">Value: $ <input id="money_value" type="number" class="money__input"></span>
       </label>
+      <slider :title="'Gorjeta'" style="margin-top: 2em" :current-value="13" :min="10" :max="20" :is-percentage="true" />
+      <slider :title="'Pessoas'" :current-value="10" :min="2" :max="16" />
     </form>
   </div>
 </template>
 
 <script>
+import Slider from '../../components/Slider/index.vue'
 export default {
-
+  components: {
+    Slider
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../../assets/css/variables.scss';
+@import '../../assets/css/breakpoints.scss';
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+form {
+  width: 100%;
 }
 
-/* Firefox */
-input[type=number] {
-  appearance: textfield;
-  -moz-appearance: textfield;
+.input_panel {
+  align-content: start;
+  width: 100%;
+
+  @include sm {
+    width: 50%;
+  }
 }
 
 .money {
   display: flex;
+  margin: auto;
+  justify-content: center;
 
   &__title {
     font-weight: 800;
     font-size: 1.2em;
     text-align: center;
-    margin: auto;
-    padding-right: 1em;
-    padding-left: 1em;
+
   }
 
   &__input {
     width: $width*2;
-    height: $height+0.3;
+    height: $height;
+    border: 2px solid $color_checkbox_success;
     border-radius: 2em;
+
+    &:after {
+      border: 2px solid $color_checkbox_success;
+    }
   }
 
 }
@@ -64,15 +75,13 @@ input[type=number] {
     font-size: 1.2em;
     text-align: center;
     margin: auto;
-    padding-right: 1em;
-    padding-left: 1em;
   }
 
   .toggle-control {
     transition: $transition;
     width: $width;
     height: $height;
-    border: 2px solid $color_checkbox_default;
+    border: 2px solid $color_checkbox_success;
     border-radius: $height;
     background-color: rgba(black, .06);
     position: relative;
