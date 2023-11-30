@@ -7,11 +7,20 @@
         </h1>
         <h3 class="app__subtitle">Because tip should be easier</h3>
       </div>
-      <div class="app__content">
-        <input-panel />
-        <result-panel v-if="!isMobile" />
+
+      <div class="app__content--mobile">
+        <transition name="slide-fade">
+          <input-panel v-if="view" class="panel" />
+          <result-panel v-else class="panel" />
+        </transition>
+      </div>
+      <div class="app__content--desktop">
+        <input-panel class="panel" />
+        <result-panel class="panel" />
       </div>
 
+      <button class="button" @click="() => view = !view">View {{ view ? 'Results' : 'Calculator'
+      }}</button>
       <footer class=" footer">
         <img src="./assets/imgs/coin-stacked.gif" class="footer__image" />
       </footer>
@@ -29,7 +38,7 @@ export default {
     ResultPanel
   },
   data: () => ({
-    currentView: 'result'
+    view: true
   }),
   computed: {
     isMobile() {
@@ -87,7 +96,7 @@ body {
     align-items: center;
     justify-content: center;
 
-    @include sm {
+    @include lg {
       width: 40%;
     }
 
@@ -101,9 +110,27 @@ body {
   &__content {
     display: flex;
     height: 100%;
-    width: 80%;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+
+    &--mobile {
+
+      display: inherit;
+
+      @include lg {
+        display: none;
+      }
+    }
+
+    &--desktop {
+
+      display: none;
+      width: 100%;
+
+      @include lg {
+        display: inherit;
+      }
+    }
   }
 
 }
@@ -117,10 +144,51 @@ body {
   flex-flow: column;
 
   &__image {
+    height: 6vh;
 
-    height: 6em;
-
-
+    @include lg {
+      height: 6em;
+    }
   }
+}
+
+.button {
+  background-color: $eucalyptus-color;
+  color: white;
+  padding: 0.4em;
+  border: 2px solid $eucalyptus-color;
+  border-radius: 1em;
+  text-align: center;
+  display: inline-block;
+  font-size: 1em;
+  margin: auto;
+  transition-duration: 0.4s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $eucalyptus-color;
+    color: white;
+  }
+
+  @include lg {
+    display: none
+  }
+}
+
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+  transition: all .4s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all .2s ease;
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(100px);
+  opacity: 0;
 }
 </style>

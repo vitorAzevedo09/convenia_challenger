@@ -36,6 +36,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/css/variables.scss';
+
 .slider {
   display: flex;
   justify-content: center;
@@ -62,5 +64,9 @@ export default {
       width: 100%;
     }
   }
+}
+
+input[type="range"] {
+  accent-color: $eucalyptus-color;
 }
 </style>

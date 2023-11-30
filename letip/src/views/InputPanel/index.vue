@@ -2,9 +2,10 @@
   <div class="input_panel">
     <form action="">
       <label for="input__checkbox" class="toggle">
-        <div class="toggle_text">EUR</div><input id="input__checkbox" type="checkbox" class="toggle-input" />
+        <div class="toggle_text">€ EUR</div>
+        <input id="input__checkbox" type="checkbox" class="toggle_input" />
         <div class="toggle-control"></div>
-        <div class="toggle_text">USD</div>
+        <div class="toggle_text">$ USD</div>
       </label>
       <label for="money_value" class="money">
         <span class="money__title">Value: $ <input id="money_value" type="number" class="money__input"></span>
@@ -36,8 +37,8 @@ form {
   align-content: start;
   width: 100%;
 
-  @include sm {
-    width: 50%;
+  @include lg {
+    width: 60%;
   }
 }
 
@@ -54,8 +55,11 @@ form {
   }
 
   &__input {
-    width: $width*2;
+    width: $width+2;
     height: $height;
+    padding-right: 1em;
+    padding-left: 1em;
+    text-align: right;
     border: 2px solid $color_checkbox_success;
     border-radius: 2em;
 
