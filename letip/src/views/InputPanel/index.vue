@@ -1,27 +1,19 @@
 <template>
   <div class="input-panel" :class="{ 'input-panel--visible': !hide }">
     <form action="" class="input-panel__form">
-      <label for="input-checkbox" class="input-panel__toggle">
-        <div class="input-panel__toggle__text">€ EUR</div>
-        <input id="input-checkbox" type="checkbox" class="input-panel__toggle__checkbox" />
-        <div class="input-panel__toggle__control"></div>
-        <div class="input-panel__toggle__text">$ USD</div>
-      </label>
-      <label for="money_value" class="input-panel__money">
-        <span class="input-panel__money__title">
-          Value:
-        </span>
-        $<input id="money_value" type="number" class="input-panel__money__input">
-      </label>
-      <slider :title="'Gorjeta'" style="margin-top: 2em" :current-value="13" :min="10" :max="20" :is-percentage="true"
+      <toggle-input :left-text="'€ EUR'" :right-text="'$ USD'" v-model="currency" />
+      <number-input :text="'Valor'" v-model="money" />
+      <slider :title="'Gorjeta'" style="margin-top: 2vh" v-model="tipPercentage" :min="10" :max="20" :is-percentage="true"
         class="input-panel__slider" />
-      <slider :title="'Pessoas'" :current-value="10" :min="2" :max="16" class="input-panel__slider" />
+      <slider :title="'Pessoas'" v-model="quantityPeaplo" :min="2" :max="16" class="input-panel__slider" />
     </form>
   </div>
 </template>
 
 <script>
-import Slider from '../../components/Slider/index.vue'
+import Slider from '../../components/SliderInput/index.vue'
+import NumberInput from '../../components/NumberInput/index.vue'
+import ToggleInput from '../../components/ToggleInput/index.vue'
 export default {
   props: {
     hide: {
@@ -29,8 +21,18 @@ export default {
       default: true
     }
   },
+  data() {
+    return {
+      money: 0,
+      currency: "EUR",
+      tipPercentage: 10,
+      quantityPeaplo: 2,
+    }
+  },
   components: {
-    Slider
+    Slider,
+    NumberInput,
+    ToggleInput
   }
 }
 </script>
@@ -62,90 +64,6 @@ export default {
     width: 100%;
   }
 
-  &__toggle {
-    display: flex;
-    margin: 1.5em;
-    padding-right: 15%;
-    padding-left: 15%;
-
-    &__text {
-      font-weight: 800;
-      font-size: $font-size;
-      text-align: center;
-      margin: auto;
-    }
-
-    &__checkbox {
-      display: none;
-
-      &:checked+.input-panel__toggle__control {
-        border-color: $color-checkbox-success;
-        background-color: $color-checkbox-success;
-
-        &:after {
-          left: $width / 2;
-        }
-      }
-    }
-
-    &__control {
-      transition: $transition;
-      width: $width;
-      height: $height;
-      border: 2px solid $color-checkbox-success;
-      border-radius: $height;
-      background-color: rgba(black, 0.06);
-      position: relative;
-
-      &:after {
-        transition: $transition;
-        content: "";
-        width: $width / 2;
-        height: $height;
-        background-color: #fff;
-        border-radius: 50%;
-        box-shadow: 0 1px 2px rgba(black, 0.4), 0 3px 2px rgba(black, 0.4);
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-    }
-  }
-
-  &__money {
-    display: flex;
-    margin: auto;
-    justify-content: center;
-
-    font-weight: 800;
-    font-size: $font-size;
-
-    &__title {
-      text-align: center;
-      margin-right: 4vw;
-    }
-
-    &__input {
-      width: $width + 2;
-      height: $height;
-      margin-left: 1vw;
-      padding-right: 1em;
-      padding-left: 1em;
-      text-align: right;
-      border: 2px solid $color-checkbox-success;
-      border-radius: 2em;
-
-      &:after {
-        border: 2px solid $color-checkbox-success;
-      }
-    }
-  }
-
-  @include lg {
-    width: 90%;
-    display: flex;
-    flex-flow: column;
-  }
 }
 
 @keyframes fadeIn {

@@ -3,15 +3,15 @@
     <label :for="`slider_${title}_value`" class="slider__wrapper">
       <div class="slider__wrapper__title">
         {{ title }}:
-        {{ currentValue }}
+        {{ value }}
         <span class="slider__title__percentage" v-if="isPercentage">%</span>
       </div>
       <div class="slider__wrapper__input">
         <div>
           {{ min }}<span class="slider__title__percentage" v-if="isPercentage">%</span>
         </div>
-        <input type="range" :min="min" :max="max" :value="currentValue" class="slider__range"
-          :id="`slider_${title}_value`">
+        <input type="range" :min="min" :max="max" @change="change($event.target.value)" :value="value"
+          class="slider__wrapper__input__range" :id="`slider_${title}_value`">
         <div>
           {{ max }}<span class="slider__title__percentage" v-if="isPercentage">%</span>
         </div>
@@ -22,16 +22,25 @@
 
 <script>
 export default {
+  model: {
+    props: 'value',
+    event: 'change'
+  },
   props: {
     title: String,
-    currentValue: Number,
+    value: Number,
     min: Number,
     max: Number,
     isPercentage: {
       type: Boolean,
       default: false
     }
-  }
+  },
+  methods: {
+    change(value) {
+      this.$emit('change', parseFloat(value))
+    }
+  },
 }
 </script>
 
@@ -61,8 +70,12 @@ export default {
       display: flex;
       flex-flow: row;
       justify-content: center;
-      width: 100%;
       height: 2vh;
+
+      &__range {
+        width: 8vw;
+        height: 2vh;
+      }
 
       accent-color: $eucalyptus-color;
     }
