@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import store from './store/index.js'
 import App from './App.vue'
+import apolloProvider from './vue-apollo.js'
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -21,5 +22,7 @@ Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
-  store
+  store,
+  apolloProvider
 }).$mount('#app')
+

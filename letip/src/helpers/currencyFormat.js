@@ -7,6 +7,7 @@ export default function(currency, price){
   let money = new Intl.NumberFormat(encode_language, {
     style: 'currency',
     currency: currency,
-})
+    roundingMode: 'ceil'
+  })
   return money.format(price)
 }
