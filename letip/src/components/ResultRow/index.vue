@@ -6,7 +6,7 @@
       </div>
       <div class="result__wrapper__money">
         <div>
-          <span class="result__wrapper__money__symbol">{{ symbol }}</span> {{ money }}
+          {{ money }}
         </div>
       </div>
     </div>
@@ -16,7 +16,7 @@
 <script>
 export default {
   props: {
-    money: Number,
+    money: String,
     symbol: String,
     title: String,
   }

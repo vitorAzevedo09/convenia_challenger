@@ -1,3 +1,4 @@
+import currencyFormat from '../../helpers/currencyFormat.js'
 
 // initial state
 // shape: [{ id, quantity }]
@@ -10,14 +11,26 @@ const state = () => ({
 
 // getters
 const getters = {
-  tipMoney: (state) => {
-    return ((state.tip_percentage/100) * state.bill)
+  billMoney: (state) => {
+    return currencyFormat(state.currency,state.bill)
   },
-  billTotalPrice: (state, getters) => {
+  tipMoney: (state) => {
+    return (state.tip_percentage/100) * state.bill
+  },
+  tipCurrency: (state, getters) => {
+    return currencyFormat(state.currency, getters.tipMoney)
+  },
+  billTotalMoney: (state, getters) => {
     return state.bill + getters.tipMoney
   },
+  billTotalCurrency: (state, getters) => {
+    return currencyFormat(state.currency, getters.billTotalMoney)
+  },
   billEachPerson: (state, getters) => {
-    return getters.billTotalPrice / state.quantity_peaplo
+    return getters.billTotalMoney / state.quantity_peaplo
+  },
+  billEachPersonCurrency: (state, getters) => {
+    return currencyFormat(state.currency, getters.billEachPerson)
   }
 }
 

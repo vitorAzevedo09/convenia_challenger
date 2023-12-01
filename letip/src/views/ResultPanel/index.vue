@@ -1,11 +1,10 @@
 <template>
   <div class="result-panel" :class="{ 'result-panel--visible': !hide }">
-    <result-row :title="'Conta'" :symbol.sync="symbol" :money="bill" />
-    <result-row :title="'Gorjeta'" :symbol.sync="symbol" :money="tip" />
-    <result-row :title="'Total'" :symbol.sync="symbol" :money="total_bill" />
-    <result-row :title="'Por Pessoa'" :symbol.sync="symbol" :money="per_person" />
-    <result-row :title="'Em R$'" :symbol.sync="symbol" :money="57.56" />
-    {{ $store.state.tip.currency }}
+    <result-row :title="'Conta'" :money="bill" />
+    <result-row :title="'Gorjeta'" :money="tip" />
+    <result-row :title="'Total'" :money="total_bill" />
+    <result-row :title="'Por Pessoa'" :money="per_person" />
+    <result-row :title="'Em R$'" :money="'57.56'" />
   </div>
 </template>
 
@@ -28,16 +27,16 @@ export default {
       return '$'
     },
     bill() {
-      return this.$store.state.tip.bill
+      return this.$store.getters['tip/billMoney']
     },
     tip() {
-      return this.$store.getters['tip/tipMoney']
+      return this.$store.getters['tip/tipCurrency']
     },
     total_bill() {
-      return this.$store.getters['tip/billTotalPrice']
+      return this.$store.getters['tip/billTotalCurrency']
     },
     per_person() {
-      return this.$store.getters['tip/billEachPerson']
+      return this.$store.getters['tip/billEachPersonCurrency']
     }
   },
 }
