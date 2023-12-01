@@ -1,17 +1,17 @@
 <template>
-  <div class="input__panel" :class="{ 'input__panel--visible': !hide }">
+  <div class="input-panel" :class="{ 'input-panel--visible': !hide }">
     <form action="" class="input-panel__form">
-      <label for="input__checkbox" class="input__panel__toggle">
-        <div class="input__panel__toggle__text">€ EUR</div>
-        <input id="toogle__input" type="checkbox" class="input__panel__toggle__checkbox" />
-        <div class="input__panel__toggle__control"></div>
-        <div class="input__panel__toggle__text">$ USD</div>
+      <label for="input-checkbox" class="input-panel__toggle">
+        <div class="input-panel__toggle__text">€ EUR</div>
+        <input id="input-checkbox" type="checkbox" class="input-panel__toggle__checkbox" />
+        <div class="input-panel__toggle__control"></div>
+        <div class="input-panel__toggle__text">$ USD</div>
       </label>
-      <label for="money_value" class="input__panel__money">
-        <span class="input__panel__money__title">
+      <label for="money_value" class="input-panel__money">
+        <span class="input-panel__money__title">
           Value:
         </span>
-        $<input id="money_value" type="number" class="input__panel__money__input">
+        $<input id="money_value" type="number" class="input-panel__money__input">
       </label>
       <slider :title="'Gorjeta'" style="margin-top: 2em" :current-value="13" :min="10" :max="20" :is-percentage="true"
         class="input-panel__slider" />
@@ -39,8 +39,7 @@ export default {
 @import '../../assets/css/variables.scss';
 @import '../../assets/css/breakpoints.scss';
 
-
-.input__panel {
+.input-panel {
   display: none;
   position: relative;
   opacity: 1;
@@ -48,7 +47,6 @@ export default {
   align-content: start;
   width: 100%;
   height: 40vh;
-
 
   &--visible {
     display: block;
@@ -80,7 +78,7 @@ export default {
     &__checkbox {
       display: none;
 
-      &:checked+.toggle__control {
+      &:checked+.input-panel__toggle__control {
         border-color: $color-checkbox-success;
         background-color: $color-checkbox-success;
 
@@ -111,13 +109,8 @@ export default {
         top: 0;
         left: 0;
       }
-
     }
-
-
-
   }
-
 
   &__money {
     display: flex;
@@ -154,7 +147,6 @@ export default {
     flex-flow: column;
   }
 }
-
 
 @keyframes fadeIn {
   from {
