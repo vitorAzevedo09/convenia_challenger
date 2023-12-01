@@ -86,6 +86,8 @@ form {
 .toggle {
   display: flex;
   margin: 1.5em;
+  padding-right: 15%;
+  padding-left: 15%;
 
   .toggle_text {
     font-weight: 800;

@@ -8,12 +8,12 @@
         <h3 class="app__subtitle">Because tip should be easier</h3>
       </div>
       <div class="app__content">
-        <input-panel class="panel" :show="view" />
-        <result-panel class="panel" :show="!view" />
+        <input-panel class="panel" :show="!view" />
+        <result-panel class="panel" :show="view" />
       </div>
 
       <button class="button" @click="() => view = !view">
-        <font-awesome-icon icon="fa-solid fa-circle-arrow-right" v-if="view" />
+        <font-awesome-icon icon="fa-solid fa-circle-arrow-right" v-if="!view" />
         <font-awesome-icon icon="fa-solid fa-circle-arrow-left" v-else />
       </button>
       <footer class=" footer">
