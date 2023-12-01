@@ -122,8 +122,8 @@ body {
 
 .button {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: $eucalyptus-color;
   border: 1px solid $eucalyptus-color;
   border-radius: 50%;

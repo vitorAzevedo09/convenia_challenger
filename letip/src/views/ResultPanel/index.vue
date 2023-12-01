@@ -27,14 +27,16 @@ export default {
 @import '../../assets/css/breakpoints.scss';
 
 .result__panel {
+  position: relative;
   display: none;
   opacity: 1;
   transition: hidden 0s, opacity 0.5s linear;
   width: 100%;
+  height: 40vh;
 
   @include lg {
 
-    width: 100%;
+    width: 70%;
     display: flex;
     flex-flow: column;
     align-content: baseline;
@@ -45,17 +47,19 @@ export default {
 @keyframes fadeIn {
   from {
     opacity: 0;
+    left: 4em;
   }
 
   to {
     opacity: 1;
+    left: 0;
   }
 }
 
 .hidden {
   display: block;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 2s;
+  animation: fadeIn 2s;
 
   @include lg {
     display: inherit;

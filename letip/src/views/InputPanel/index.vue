@@ -41,13 +41,17 @@ form {
 
 .input_panel {
   display: none;
+  position: relative;
   opacity: 1;
   transition: hidden 0s, opacity 0.5s linear;
   align-content: start;
   width: 100%;
+  height: 40vh;
 
   @include lg {
-    width: 60%;
+    width: 90%;
+    display: flex;
+    flex-flow: column;
   }
 }
 
@@ -128,30 +132,22 @@ form {
 
 }
 
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
+    right: 4em;
   }
 
   to {
     opacity: 1;
+    right: 0;
   }
 }
 
 .hidden {
   display: block;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 2s;
+  animation: fadeIn 2s;
 
   @include lg {
     display: inherit;
