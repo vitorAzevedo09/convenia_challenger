@@ -2,20 +2,22 @@
   <div id="app" class="app">
     <div class="app__wrapper">
       <div class="app__header">
-        <h1 class="app__title">Le Tip
-          <font-awesome-icon icon="fa-solid fa-coins" bounce />
+        <h1 class="app__title">
+          Le Tip
+          <font-awesome-icon class="app__icon" icon="fa-solid fa-coins" bounce />
         </h1>
         <h3 class="app__subtitle">Because tip should be easier</h3>
       </div>
       <div class="app__content">
-        <input-panel class="panel" :show="!view" />
-        <result-panel class="panel" :show="view" />
+        <input-panel class="panel" :hide="!view" />
+        <result-panel class="panel" :hide="view" />
       </div>
 
-      <button class="button" @click="() => view = !view">
-        <font-awesome-icon icon="fa-solid fa-arrow-up" :class="view ? 'arrow-right' : 'arrow-left'" />
+      <button class="app__button button" @click="() => view = !view">
+        <font-awesome-icon class="app__arrow-icon" icon="fa-solid fa-arrow-up"
+          :class="view ? 'arrow-right' : 'arrow-left'" />
       </button>
-      <footer class=" footer">
+      <footer class="app__footer footer">
         <img src="./assets/imgs/coin-stacked.gif" class="footer__image" />
       </footer>
     </div>
@@ -53,11 +55,8 @@ body {
   color: $main-brand-color;
   width: 100%;
   height: 100vh;
-}
-
-* {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .app {
@@ -68,23 +67,19 @@ body {
   justify-content: center;
 
   &__wrapper {
-
     background-color: $white;
     padding: 2%;
     display: flex;
     align-items: center;
-    height: 70%;
     width: 80%;
     border-radius: 5%;
     align-items: center;
     flex-flow: column;
-    align-items: center;
     justify-content: center;
 
     @include lg {
       width: 40%;
     }
-
   }
 
   &__header {
@@ -97,9 +92,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-
   }
-
 }
 
 .title__icon {
@@ -111,10 +104,10 @@ body {
   flex-flow: column;
 
   &__image {
-    height: 6vh;
+    height: 5vh;
 
     @include lg {
-      height: 6em;
+      height: 6vh;
     }
   }
 }
@@ -122,8 +115,8 @@ body {
 .button {
   display: inline-flex;
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 4vh;
+  height: 4vh;
   background: $eucalyptus-color;
   border: 1px solid $eucalyptus-color;
   border-radius: 50%;
@@ -132,8 +125,7 @@ body {
   text-align: center;
   justify-content: center;
   align-content: center;
-  padding-top: 0.3em;
-  font-size: 1.5em;
+  font-size: $font-size+1;
   z-index: 100;
   box-shadow: 0 10px 25px -5px rgba(44, 179, 240, 0.6);
   cursor: pointer;
@@ -144,10 +136,12 @@ body {
 }
 
 @include lg {
-  display: none
+  display: none;
 }
 
-.arrow-right {
+.arrow-right,
+.arrow-left {
+  margin: auto;
   transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
   transition: transform 400ms ease !important;
@@ -156,6 +150,5 @@ body {
 .arrow-left {
   transform: rotate(-90deg);
   -webkit-transform: rotate(-90deg);
-  transition: transform 400ms ease !important;
 }
 </style>

@@ -24,17 +24,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/css/variables.scss";
+
 .result {
   width: 100%;
   display: flex;
-  margin-bottom: 1em;
+  margin-bottom: 1vh;
 
   &__wrapper {
     display: flex;
     width: 100%;
-    margin-top: 0.5em;
+    margin-top: 0.5vh;
     flex-flow: column;
-    font-size: 1.2em;
+    font-size: $font-size;
     align-items: center;
 
 
@@ -42,7 +44,7 @@ export default {
       margin-bottom: 0.5em;
     }
 
-    &__money{
+    &__money {
       display: flex;
       font-weight: 800;
       flex-flow: row;

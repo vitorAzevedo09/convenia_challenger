@@ -1,5 +1,5 @@
 <template>
-  <div class="result__panel" :class="show ? '' : 'hidden'">
+  <div class="result-panel" :class="{ 'result-panel--visible': !hide }">
     <result-row :title="'Conta'" :symbol="'$'" :money="73.23" />
     <result-row :title="'Gorjeta'" :symbol="'$'" :money="9.52" />
     <result-row :title="'Total'" :symbol="'$'" :money="82.75" />
@@ -12,7 +12,7 @@
 import ResultRow from '../../components/ResultRow/index.vue'
 export default {
   props: {
-    show: {
+    hide: {
       type: Boolean,
       default: true
     }
@@ -25,8 +25,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/css/breakpoints.scss';
+@import '../../assets/css/variables.scss';
 
-.result__panel {
+.result-panel {
+  font-size: $font-size;
   position: relative;
   display: none;
   opacity: 1;
@@ -35,13 +37,22 @@ export default {
   height: 40vh;
 
   @include lg {
-
     width: 70%;
     display: flex;
     flex-flow: column;
     align-content: baseline;
   }
 
+  &--visible {
+    display: block;
+
+    @include lg {
+      display: inherit;
+    }
+
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+  }
 }
 
 @keyframes fadeIn {
@@ -53,16 +64,6 @@ export default {
   to {
     opacity: 1;
     left: 0;
-  }
-}
-
-.hidden {
-  display: block;
-  -webkit-animation: fadeIn 2s;
-  animation: fadeIn 2s;
-
-  @include lg {
-    display: inherit;
   }
 }
 </style>

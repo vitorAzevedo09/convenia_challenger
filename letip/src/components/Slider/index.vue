@@ -49,7 +49,7 @@ export default {
     margin-top: 1em;
     flex-flow: column;
     font-weight: 800;
-    font-size: 1.2em;
+    font-size: $font-size;
     text-align: center;
 
 
@@ -62,6 +62,7 @@ export default {
       flex-flow: row;
       justify-content: center;
       width: 100%;
+      height: 2vh;
     }
   }
 }
