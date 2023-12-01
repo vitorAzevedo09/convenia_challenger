@@ -22,10 +22,6 @@
 
 <script>
 export default {
-  model: {
-    props: 'value',
-    event: 'change'
-  },
   props: {
     title: String,
     value: Number,
@@ -46,6 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/css/variables.scss';
+@import '../../assets/css/breakpoints.scss';
 
 .slider {
   display: flex;
@@ -73,8 +70,14 @@ export default {
       height: 2vh;
 
       &__range {
-        width: 8vw;
+        width: 20vw;
         height: 2vh;
+
+        @include lg {
+          width: 8vw;
+          height: 2vh;
+        }
+
       }
 
       accent-color: $eucalyptus-color;

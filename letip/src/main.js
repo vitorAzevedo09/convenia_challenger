@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import store from './store/index.js'
 import App from './App.vue'
 
 /* import the fontawesome core */
@@ -14,8 +14,6 @@ import { faCoins, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-/*  Add Vuex */
-Vue.use(Vuex)
 
 library.add(faCoins,faArrowUp)
 
@@ -23,4 +21,5 @@ Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
+  store
 }).$mount('#app')

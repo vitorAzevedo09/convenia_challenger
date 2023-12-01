@@ -9,10 +9,6 @@
 
 <script>
 export default {
-  model: {
-    prop: 'value',
-    event: 'change'
-  },
   props: {
     text: {
       type: String,

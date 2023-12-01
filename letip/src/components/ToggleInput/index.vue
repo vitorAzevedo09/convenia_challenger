@@ -9,10 +9,6 @@
 
 <script>
 export default {
-  model: {
-    prop: 'currentCurrency',
-    event: 'change'
-  },
   props: {
     leftText: {
       type: String,
@@ -22,9 +18,9 @@ export default {
       type: String,
       default: 'TEXT RIGHT'
     },
-    currentCurrency: {
-      type: String,
-      default: 'TEXT LEFT'
+    checked: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {

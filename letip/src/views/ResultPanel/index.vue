@@ -1,10 +1,11 @@
 <template>
   <div class="result-panel" :class="{ 'result-panel--visible': !hide }">
-    <result-row :title="'Conta'" :symbol="'$'" :money="73.23" />
-    <result-row :title="'Gorjeta'" :symbol="'$'" :money="9.52" />
-    <result-row :title="'Total'" :symbol="'$'" :money="82.75" />
-    <result-row :title="'Por Pessoa'" :symbol="'$'" :money="8.28" />
-    <result-row :title="'Em R$'" :symbol="'R$'" :money="57.56" />
+    <result-row :title="'Conta'" :symbol.sync="symbol" :money="bill" />
+    <result-row :title="'Gorjeta'" :symbol.sync="symbol" :money="tip" />
+    <result-row :title="'Total'" :symbol.sync="symbol" :money="total_bill" />
+    <result-row :title="'Por Pessoa'" :symbol.sync="symbol" :money="per_person" />
+    <result-row :title="'Em R$'" :symbol.sync="symbol" :money="57.56" />
+    {{ $store.state.tip.currency }}
   </div>
 </template>
 
@@ -19,7 +20,26 @@ export default {
   },
   components: {
     ResultRow
-  }
+  },
+  computed: {
+    symbol() {
+      if (this.$store.state.tip.currency === 'EUR')
+        return '€'
+      return '$'
+    },
+    bill() {
+      return this.$store.state.tip.bill
+    },
+    tip() {
+      return this.$store.getters['tip/tipMoney']
+    },
+    total_bill() {
+      return this.$store.getters['tip/billTotalPrice']
+    },
+    per_person() {
+      return this.$store.getters['tip/billEachPerson']
+    }
+  },
 }
 </script>
 
@@ -32,7 +52,7 @@ export default {
   position: relative;
   display: none;
   opacity: 1;
-  transition: hidden 0s, opacity 0.5s linear;
+  transition: hidden 0s, opacity 0.3s linear;
   width: 100%;
   height: 40vh;
 
@@ -50,8 +70,8 @@ export default {
       display: inherit;
     }
 
-    -webkit-animation: fadeIn 2s;
-    animation: fadeIn 2s;
+    -webkit-animation: fadeIn 0.3s;
+    animation: fadeIn 0.3s;
   }
 }
 
