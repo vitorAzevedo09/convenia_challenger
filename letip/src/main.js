@@ -8,12 +8,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faCoins, faCircleArrowRight, faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faCoins, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-library.add(faCoins,faCircleArrowRight, faCircleArrowLeft)
+library.add(faCoins,faArrowUp)
 
 Vue.config.productionTip = false
 

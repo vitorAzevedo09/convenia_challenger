@@ -13,8 +13,7 @@
       </div>
 
       <button class="button" @click="() => view = !view">
-        <font-awesome-icon icon="fa-solid fa-circle-arrow-right" v-if="!view" />
-        <font-awesome-icon icon="fa-solid fa-circle-arrow-left" v-else />
+        <font-awesome-icon icon="fa-solid fa-arrow-up" :class="view ? 'arrow-right' : 'arrow-left'" />
       </button>
       <footer class=" footer">
         <img src="./assets/imgs/coin-stacked.gif" class="footer__image" />
@@ -121,6 +120,7 @@ body {
 }
 
 .button {
+  display: inline-flex;
   position: relative;
   width: 40px;
   height: 40px;
@@ -130,12 +130,13 @@ body {
   margin-left: 60%;
   color: white;
   text-align: center;
-  font-size: 1.2em;
+  justify-content: center;
+  align-content: center;
+  padding-top: 0.3em;
+  font-size: 1.5em;
   z-index: 100;
   box-shadow: 0 10px 25px -5px rgba(44, 179, 240, 0.6);
   cursor: pointer;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
 
   @include lg {
     display: none;
@@ -146,20 +147,15 @@ body {
   display: none
 }
 
-
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
-.slide-fade-enter-active {
-  transition: all .4s ease;
+.arrow-right {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transition: transform 400ms ease !important;
 }
 
-.slide-fade-leave-active {
-  transition: all .2s ease;
-}
-
-.slide-fade-enter,
-.slide-fade-leave-to {
-  transform: translateX(100px);
-  opacity: 0;
+.arrow-left {
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transition: transform 400ms ease !important;
 }
 </style>
