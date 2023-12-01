@@ -7,19 +7,12 @@
         </h1>
         <h3 class="app__subtitle">Because tip should be easier</h3>
       </div>
-
-      <div class="app__content--mobile" v-if="isMobile">
-        <transition name="slide-fade">
-          <input-panel v-if="view" class="panel" />
-          <result-panel v-else class="panel" />
-        </transition>
-      </div>
-      <div class="app__content--desktop" v-else>
-        <input-panel class="panel" />
-        <result-panel class="panel" />
+      <div class="app__content">
+        <input-panel class="panel" :show="view" />
+        <result-panel class="panel" :show="!view" />
       </div>
 
-      <button v-if="isMobile" class="button" @click="() => view = !view">
+      <button class="button" @click="() => view = !view">
         <font-awesome-icon icon="fa-solid fa-circle-arrow-right" v-if="view" />
         <font-awesome-icon icon="fa-solid fa-circle-arrow-left" v-else />
       </button>
@@ -41,29 +34,7 @@ export default {
   },
   data: () => ({
     view: true,
-    windowWidth: 0
   }),
-  created() {
-    this.$nextTick(() => {
-      window.addEventListener('resize', this.onResize);
-      this.windowWidth = window.innerWidth
-    })
-  },
-
-  beforeDestroy() {
-    window.removeEventListener('resize', this.onResize);
-  },
-
-  methods: {
-    onResize() {
-      this.windowWidth = window.innerWidth
-    }
-  },
-  computed: {
-    isMobile() {
-      return this.windowWidth < 992 ? true : false
-    }
-  }
 }
 </script>
 
@@ -126,25 +97,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 
-    &--mobile {
-
-      display: inherit;
-
-      @include lg {
-        display: none;
-      }
-    }
-
-    &--desktop {
-
-      display: none;
-      width: 100%;
-
-      @include lg {
-        display: inherit;
-      }
-    }
   }
 
 }
@@ -182,6 +136,10 @@ body {
   cursor: pointer;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+
+  @include lg {
+    display: none;
+  }
 }
 
 @include lg {

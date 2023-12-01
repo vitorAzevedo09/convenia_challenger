@@ -1,5 +1,5 @@
 <template>
-  <div class="input_panel">
+  <div class="input_panel" :class="show ? '' : 'hidden'">
     <form action="">
       <label for="input__checkbox" class="toggle">
         <div class="toggle_text">€ EUR</div>
@@ -19,6 +19,12 @@
 <script>
 import Slider from '../../components/Slider/index.vue'
 export default {
+  props: {
+    show: {
+      type: Boolean,
+      default: true
+    }
+  },
   components: {
     Slider
   }
@@ -34,6 +40,9 @@ form {
 }
 
 .input_panel {
+  display: none;
+  opacity: 1;
+  transition: hidden 0s, opacity 0.5s linear;
   align-content: start;
   width: 100%;
 
@@ -117,5 +126,35 @@ form {
     }
   }
 
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.hidden {
+  display: block;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+
+  @include lg {
+    display: inherit;
+  }
 }
 </style>
