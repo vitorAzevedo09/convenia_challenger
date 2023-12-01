@@ -13,12 +13,12 @@
         <result-panel class="panel" :hide="view" />
       </div>
 
-      <button class="app__button button" @click="() => view = !view">
-        <font-awesome-icon class="app__arrow-icon" icon="fa-solid fa-arrow-up"
-          :class="view ? 'arrow-right' : 'arrow-left'" />
+      <button class="app__button" @click="() => view = !view">
+        <font-awesome-icon icon="fa-solid fa-arrow-up"
+          :class="view ? 'app__button__arrow-right' : 'app__button__arrow-left'" />
       </button>
-      <footer class="app__footer footer">
-        <img src="./assets/imgs/coin-stacked.gif" class="footer__image" />
+      <footer class="app__footer">
+        <img src="./assets/imgs/coin-stacked.gif" class="app__footer__image" />
       </footer>
     </div>
   </div>
@@ -93,62 +93,60 @@ body {
     align-items: center;
     width: 100%;
   }
-}
 
-.title__icon {
-  color: #e1b530;
-}
+  &__button {
+    display: inline-flex;
+    position: relative;
+    width: 4vh;
+    height: 4vh;
+    background: $eucalyptus-color;
+    border: 1px solid $eucalyptus-color;
+    border-radius: 50%;
+    margin-left: 60%;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    font-size: $font-size+1;
+    z-index: 100;
+    box-shadow: 0 10px 25px -5px rgba(44, 179, 240, 0.6);
+    cursor: pointer;
 
-.footer {
-  display: flex;
-  flex-flow: column;
 
-  &__image {
-    height: 5vh;
+    &__arrow-right,
+    &__arrow-left {
+      margin: auto;
+      transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      transition: transform 400ms ease !important;
+    }
+
+    &__arrow-left {
+      transform: rotate(-90deg);
+      -webkit-transform: rotate(-90deg);
+    }
 
     @include lg {
-      height: 6vh;
+      display: none;
     }
   }
-}
 
-.button {
-  display: inline-flex;
-  position: relative;
-  width: 4vh;
-  height: 4vh;
-  background: $eucalyptus-color;
-  border: 1px solid $eucalyptus-color;
-  border-radius: 50%;
-  margin-left: 60%;
-  color: white;
-  text-align: center;
-  justify-content: center;
-  align-content: center;
-  font-size: $font-size+1;
-  z-index: 100;
-  box-shadow: 0 10px 25px -5px rgba(44, 179, 240, 0.6);
-  cursor: pointer;
+  &__footer {
 
-  @include lg {
-    display: none;
+    display: flex;
+    flex-flow: column;
+
+    &__image {
+      height: 5vh;
+
+      @include lg {
+        height: 6vh;
+      }
+    }
   }
 }
 
 @include lg {
   display: none;
-}
-
-.arrow-right,
-.arrow-left {
-  margin: auto;
-  transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
-  transition: transform 400ms ease !important;
-}
-
-.arrow-left {
-  transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
 }
 </style>

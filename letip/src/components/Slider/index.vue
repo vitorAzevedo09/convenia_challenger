@@ -63,11 +63,9 @@ export default {
       justify-content: center;
       width: 100%;
       height: 2vh;
+
+      accent-color: $eucalyptus-color;
     }
   }
-}
-
-input[type="range"] {
-  accent-color: $eucalyptus-color;
 }
 </style>
