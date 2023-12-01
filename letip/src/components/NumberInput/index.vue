@@ -46,7 +46,7 @@ export default {
   }
 
   &__input {
-    width: $width + 2;
+    width: $width + 4;
     height: $height;
     font-weight: 800;
     font-size: ($font-size)-0.5;

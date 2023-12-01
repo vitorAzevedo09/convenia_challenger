@@ -22,6 +22,11 @@ export default {
       default: true
     }
   },
+  components: {
+    Slider,
+    NumberInput,
+    ToggleInput
+  },
   computed: {
     bill() {
       return this.$store.state.tip.bill
@@ -35,24 +40,19 @@ export default {
   },
   methods: {
     changeBill(value) {
-      this.$store.commit('tip/changeBill', value)
+      this.$store.commit('tip/SET_BILL', value)
     },
     changeCurrency(value) {
-      let currency = value ? 'USD' : 'EUR'
-      this.$store.commit('tip/changeCurrency', currency)
+      let currency = value ? "USD" : "EUR"
+      this.$store.commit('tip/SET_CURRENCY', currency)
     },
     changePercentage(value) {
-      this.$store.commit('tip/changeTipPercentage', value)
+      this.$store.commit('tip/SET_TIP_PERCENTAGE', value)
     },
     changePeaploQuantity(value) {
-      this.$store.commit('tip/changeQuantityPeaplo', value)
+      this.$store.commit('tip/SET_PEAPLO_QUANTITY', value)
     },
   },
-  components: {
-    Slider,
-    NumberInput,
-    ToggleInput
-  }
 }
 </script>
 

@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import store from './store/index.js'
 import App from './App.vue'
-import apolloProvider from './vue-apollo.js'
+import apolloClient from './api/vue-apollo.js'
+import { createApolloProvider } from '@vue/apollo-option'
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -19,6 +20,10 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 library.add(faCoins,faArrowUp)
 
 Vue.config.productionTip = false
+
+const apolloProvider = createApolloProvider({
+  defaultClient: apolloClient,
+})
 
 new Vue({
   render: h => h(App),

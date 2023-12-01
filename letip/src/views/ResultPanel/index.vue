@@ -4,7 +4,7 @@
     <result-row :title="'Gorjeta'" :money="tip" />
     <result-row :title="'Total'" :money="total_bill" />
     <result-row :title="'Por Pessoa'" :money="per_person" />
-    <result-row :title="'Em R$'" :money="'57.56'" />
+    <result-row :title="'Em R$'" :money="bill_BRL" />
   </div>
 </template>
 
@@ -37,8 +37,19 @@ export default {
     },
     per_person() {
       return this.$store.getters['tip/billEachPersonCurrency']
+    },
+    bill_BRL() {
+      return this.$store.getters['tip/billTotalBRL']
     }
   },
+  created() {
+    this.$store.dispatch('tip/getQuoteBRL')
+  },
+  watch: {
+    total_bill() {
+      this.$store.dispatch('tip/getQuoteBRL')
+    }
+  }
 }
 </script>
 
