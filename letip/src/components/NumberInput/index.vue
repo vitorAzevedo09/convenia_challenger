@@ -3,7 +3,8 @@
     <span class="money__title">
       {{ text }}:
     </span>
-    $<input :value="value" id="money_value" type="number" @change="change($event.target.value)" class="money__input">
+    $<input :value="value" id="money_value" type="number" min="0" @change="change($event.target.value)"
+      class="money__input">
   </label>
 </template>
 
