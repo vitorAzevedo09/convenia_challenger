@@ -22,13 +22,13 @@ Prerequisites: NodeJs (v 20.9.0)
 1. Clone the project repository:
 
 ```bash
-git clone https://gitlab.com/matheuswilliamdev/frontend.git
+git clone https://github.com/vitorAzevedo09/convenia_challenger
 ```
 
 2. After cloning the repository, navigate to the project directory:
 
 ```bash
-cd frontend
+cd letip-vue2
 ```
 
 3. Inside the project repository, before running the **`npm install`** command, you need to copy the `.env.example` file and rename it to `.env`, then fill in the `VUE_APP_SWOP_API_KEY` variable.
