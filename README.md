@@ -2,7 +2,7 @@
 
 ### Description
 
-Implementation of the [Convenia](https://www.convenia.com.br/) front-end [technical assessment]() for the Front-end Junior Developer position.
+Implementation of the [Convenia](https://www.convenia.com.br/) front-end [technical assessment](https://github.com/vitorAzevedo09/convenia_challenger/blob/main/challenger-description.md) for the Front-end Junior Developer position.
 
 The deployment of this application is available at the following link: [https://convenia-challenger.web.app/](https://convenia-challenger.web.app/)
 
@@ -17,7 +17,7 @@ The deployment of this application is available at the following link: [https://
 
 #### How to Run the Project
 
-Prerequisites: NodeJs (v 14.15.4)
+Prerequisites: NodeJs (v 20.9.0)
 
 1. Clone the project repository:
 
