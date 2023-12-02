@@ -91,7 +91,6 @@ const actions = {
       if (state.currency === "USD"){
         quote = (1/response.data.latest[1].quote) * response.data.latest[0].quote
       }
-        console.log(quote)
     commit('SET_QUOTE_BRL', quote)
   }
 }
