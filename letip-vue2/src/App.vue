@@ -97,17 +97,17 @@ body {
   &__button {
     display: inline-flex;
     position: relative;
-    width: 4vh;
-    height: 4vh;
-    background: $eucalyptus-color;
-    border: 1px solid $eucalyptus-color;
+    width: 40px;
+    height: 40px;
+    background: $purple-x11;
+    border: 1px solid $coin-color;
     border-radius: 50%;
     margin-left: 60%;
     color: white;
     text-align: center;
     justify-content: center;
     align-content: center;
-    font-size: $font-size+1;
+    font-size: $font-size-mobile;
     z-index: 100;
     box-shadow: 0 10px 25px -5px rgba(44, 179, 240, 0.6);
     cursor: pointer;

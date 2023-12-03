@@ -61,10 +61,11 @@ export default {
 @import '../../assets/css/breakpoints.scss';
 
 .input-panel {
+  color: $purple-x11;
   display: none;
   position: relative;
   opacity: 1;
-  transition: hidden 0s, opacity 0.3s linear;
+  transition: hidden 0s, opacity $transition;
   align-content: start;
   width: 100%;
   height: 40vh;

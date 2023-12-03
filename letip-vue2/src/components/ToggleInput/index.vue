@@ -40,9 +40,11 @@ export default {
   padding-right: 15%;
   padding-left: 15%;
 
+
+
   &__text {
     font-weight: 800;
-    font-size: $font-size;
+    font-size: $font-size-mobile;
     text-align: center;
     margin: auto;
   }

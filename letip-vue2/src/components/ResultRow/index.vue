@@ -25,6 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/css/variables.scss";
+@import "../../assets/css/breakpoints.scss";
 
 .result {
   width: 100%;
@@ -36,17 +37,21 @@ export default {
     width: 100%;
     margin-top: 0.5vh;
     flex-flow: column;
-    font-size: $font-size;
+    font-size: $font-size-mobile;
     align-items: center;
 
+    @include lg {
+      font-size: $font-size-desktop;
+    }
 
     &__title {
       margin-bottom: 0.5em;
+      font-weight: 800;
     }
 
     &__money {
+      color: $coin-color-contrast;
       display: flex;
-      font-weight: 800;
       flex-flow: row;
       justify-content: center;
       width: 100%;

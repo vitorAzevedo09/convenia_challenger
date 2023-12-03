@@ -3,8 +3,9 @@
     <label :for="`slider_${title}_value`" class="slider__wrapper">
       <div class="slider__wrapper__title">
         {{ title }}:
-        {{ value }}
-        <span class="slider__title__percentage" v-if="isPercentage">%</span>
+        <span class="slider__wrapper__title__value">{{ value }}
+          <span class="slider__title__percentage" v-if="isPercentage">%</span>
+        </span>
       </div>
       <div class="slider__wrapper__input">
         <div>
@@ -55,12 +56,16 @@ export default {
     margin-top: 1em;
     flex-flow: column;
     font-weight: 800;
-    font-size: $font-size;
+    font-size: $font-size-mobile;
     text-align: center;
 
 
     &__title {
       margin-bottom: 0.5em;
+
+      &__value {
+        color: $coin-color-contrast;
+      }
     }
 
     &__input {
@@ -80,7 +85,7 @@ export default {
 
       }
 
-      accent-color: $eucalyptus-color;
+      accent-color: $coin-color;
     }
   }
 }

@@ -58,11 +58,12 @@ export default {
 @import '../../assets/css/variables.scss';
 
 .result-panel {
-  font-size: $font-size;
+  color: $purple-x11;
+  font-size: $font-size-mobile;
   position: relative;
   display: none;
   opacity: 1;
-  transition: hidden 0s, opacity 0.3s linear;
+  transition: hidden 0s, opacity $transition;
   width: 100%;
   height: 40vh;
 

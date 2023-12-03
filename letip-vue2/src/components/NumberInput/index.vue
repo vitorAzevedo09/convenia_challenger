@@ -40,7 +40,11 @@ export default {
   padding-right: 1vw;
 
   font-weight: 800;
-  font-size: $font-size;
+  font-size: $font-size-mobile;
+
+  @include lg {
+    font-size: $font-size-desktop;
+  }
 
   &__title {
     text-align: center;
@@ -48,10 +52,10 @@ export default {
 
   &__input {
     width: $width + 4;
-    height: $height;
+    height: ($height)-0.6;
     font-weight: 800;
-    font-size: ($font-size)-0.5;
-    color: $eucalyptus-color;
+    font-size: ($font-size-mobile)-0.5;
+    color: $coin-color-contrast;
     margin-left: 1vw;
     padding-right: 0.5vw;
     padding-left: 0.5vw;
