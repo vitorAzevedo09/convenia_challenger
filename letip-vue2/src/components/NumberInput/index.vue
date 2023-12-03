@@ -34,7 +34,6 @@ export default {
 
 .money {
   display: flex;
-  margin: auto;
   justify-content: center;
   padding-left: 1vw;
   padding-right: 1vw;
@@ -47,12 +46,12 @@ export default {
   }
 
   &__title {
-    text-align: center;
+    text-align: end;
   }
 
   &__input {
     width: $width + 4;
-    height: ($height)-0.6;
+    height: ($height)-1;
     font-weight: 800;
     font-size: ($font-size-mobile)-0.5;
     color: $coin-color-contrast;

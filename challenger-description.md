@@ -97,11 +97,11 @@ De maneira que estas informações alimentem meu sistema pessoal
 
 #### Desktop
 
-![Mockup Desktop](/Desktop.png)
+![Mockup Desktop](/imgs/Desktop.png)
 
 #### Mobile
 
-![Mockup Desktop](/Mobile.png)
+![Mockup Desktop](/imgs/Mobile.png)
 
 ### Considerações
 
