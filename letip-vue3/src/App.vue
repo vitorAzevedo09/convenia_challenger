@@ -1,47 +1,129 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref, type Ref } from 'vue'
+import InputPanel from "./views/InputPanel/index.vue"
+
+const view: Ref<Boolean> = ref<Boolean>(true)
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <main class="main">
+    <div class="main__wrapper">
+      <div class="main__header">
+        <h1 class="main__title">
+          Le Tip
+          <font-awesome-icon class="app__icon" icon="fa-solid fa-coins" bounce />
+        </h1>
+        <h2 class="main__subtitle">Because tip should be easier</h2>
+      </div>
+      <div class="main__content">
+        <input-panel class="main_content_panel" :hide="!view" />
+      </div>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <button class="main__button" @click="() => view = !view">
+        <font-awesome-icon icon="fa-solid fa-arrow-up"
+          :class="view ? 'main__button__arrow-right' : 'main__button__arrow-left'" />
+      </button>
+      <footer class="app__footer">
+        <img src="./assets/imgs/coin-stacked.gif" class="main__footer__image" />
+      </footer>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
   </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+@import './assets/css/variables.scss';
+@import './assets/css/breakpoints.scss';
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
 
-@media (min-width: 1024px) {
-  header {
+
+.main {
+  box-shadow: 0px 4px 4px 0px #00000040, inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__wrapper {
+    background-color: $white;
+    padding: 2%;
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    align-items: center;
+    width: 80%;
+    border-radius: 5%;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+
+    @include lg {
+      width: 40%;
+    }
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
+  &__header {
+    text-align: center;
+    font-family: 'Cedarville Cursive', cursive;
   }
 
-  header .wrapper {
+  &__content {
     display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
+
+  &__button {
+    display: inline-flex;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: $purple-x11;
+    border: 1px solid $coin-color;
+    border-radius: 50%;
+    margin-left: 60%;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    font-size: $font-size-mobile;
+    z-index: 100;
+    box-shadow: 0 10px 25px -5px rgba(44, 179, 240, 0.6);
+    cursor: pointer;
+
+
+    &__arrow-right,
+    &__arrow-left {
+      margin: auto;
+      transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      transition: transform 400ms ease !important;
+    }
+
+    &__arrow-left {
+      transform: rotate(-90deg);
+      -webkit-transform: rotate(-90deg);
+    }
+
+    @include lg {
+      display: none;
+    }
+  }
+
+  &__footer {
+
+    display: flex;
+    flex-flow: column;
+
+    &__image {
+      height: 5vh;
+
+      @include lg {
+        height: 6vh;
+      }
+    }
+  }
+
 }
 </style>

@@ -1,0 +1,19 @@
+
+// Split-Complementary Palette Gold Coin Color: HEX #E1B530 / RGB (225, 181, 48)
+
+$coin-color: #E1B530;
+$coin-color-contrast: #B49126;
+$eucalyptus-color: #30E1B5;
+$purple-x11: #B530E1;
+$white: #eee;
+$main-brand-color: $coin-color;
+
+
+$color_checkbox_success: $coin-color-contrast;
+$color_checkbox_default: #8E8E93;
+$transition: .3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$width: 6vh;
+$height: calc($width/2);
+$font-size-mobile: 2.5vh;
+$font-size-desktop: 2.2vh;
+
