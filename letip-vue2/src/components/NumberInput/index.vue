@@ -35,8 +35,7 @@ export default {
 .money {
   display: flex;
   justify-content: center;
-  padding-left: 1vw;
-  padding-right: 1vw;
+  margin-top: 3vh;
 
   font-weight: 800;
   font-size: $font-size-mobile;
@@ -66,11 +65,6 @@ export default {
       border: 2px solid $color-checkbox-success;
     }
   }
-}
 
-@include lg {
-  width: 90%;
-  display: flex;
-  flex-flow: column;
 }
 </style>

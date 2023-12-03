@@ -91,7 +91,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    gap: 10vw
   }
 
   &__button {
@@ -144,9 +144,5 @@ body {
       }
     }
   }
-}
-
-@include lg {
-  display: none;
 }
 </style>

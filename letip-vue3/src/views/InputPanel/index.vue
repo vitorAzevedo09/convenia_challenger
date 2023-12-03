@@ -67,12 +67,16 @@ const { hide } = defineProps<Props>()
     animation: fadeIn 0.3s;
 
     @include lg {
-      display: inherit;
+      display: none;
     }
   }
 
   &__form {
     width: 100%;
+  }
+
+  @include lg {
+    display: inherit;
   }
 
 }

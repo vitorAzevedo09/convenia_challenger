@@ -1,11 +1,3 @@
-<script setup lang="ts">
-import { ref, type Ref } from 'vue'
-import InputPanel from "./views/InputPanel/index.vue"
-
-const view: Ref<Boolean> = ref<Boolean>(true)
-
-</script>
-
 <template>
   <main class="main">
     <div class="main__wrapper">
@@ -17,7 +9,8 @@ const view: Ref<Boolean> = ref<Boolean>(true)
         <h2 class="main__subtitle">Because tip should be easier</h2>
       </div>
       <div class="main__content">
-        <input-panel class="main_content_panel" :hide="!view" />
+        <input-panel class="main__content__panel" :hide="!view" />
+        <result-panel class="main__content__panel" :hide="view" />
       </div>
 
       <button class="main__button" @click="() => view = !view">
@@ -31,9 +24,17 @@ const view: Ref<Boolean> = ref<Boolean>(true)
   </main>
 </template>
 
+<script setup lang="ts">
+import { ref, type Ref } from 'vue'
+import InputPanel from "./views/InputPanel/index.vue"
+import ResultPanel from "./views/ResultPanel/index.vue"
+
+const view: Ref<boolean> = ref<boolean>(true)
+
+</script>
+
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 @import './assets/css/variables.scss';
 @import './assets/css/breakpoints.scss';
 
@@ -51,14 +52,14 @@ const view: Ref<Boolean> = ref<Boolean>(true)
     padding: 2%;
     display: flex;
     align-items: center;
-    width: 80%;
+    width: 40vw;
     border-radius: 5%;
     align-items: center;
     flex-flow: column;
     justify-content: center;
 
     @include lg {
-      width: 40%;
+      width: 40vw;
     }
   }
 
@@ -71,7 +72,10 @@ const view: Ref<Boolean> = ref<Boolean>(true)
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+
+    @include lg {
+      gap: 10vw
+    }
   }
 
   &__button {
@@ -112,7 +116,7 @@ const view: Ref<Boolean> = ref<Boolean>(true)
   }
 
   &__footer {
-
+    padding-top: 2vh;
     display: flex;
     flex-flow: column;
 
@@ -124,6 +128,7 @@ const view: Ref<Boolean> = ref<Boolean>(true)
       }
     }
   }
+
 
 }
 </style>

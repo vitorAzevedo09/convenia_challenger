@@ -32,9 +32,9 @@ const change = (e: Event): void => {
 @import "../assets/css/breakpoints.scss";
 
 .money {
-  display: block;
+  display: flex;
   justify-content: center;
-  margin-top: 2vh;
+  margin-top: 3vh;
 
   font-weight: 800;
   font-size: $font-size-mobile;
