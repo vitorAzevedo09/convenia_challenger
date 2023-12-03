@@ -6,7 +6,7 @@
           Le Tip
           <font-awesome-icon class="app__icon" icon="fa-solid fa-coins" bounce />
         </h1>
-        <h3 class="app__subtitle">Because tip should be easier</h3>
+        <h2 class="app__subtitle">Because tip should be easier</h2>
       </div>
       <div class="app__content">
         <input-panel class="panel" :hide="!view" />
