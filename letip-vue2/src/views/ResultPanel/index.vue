@@ -59,7 +59,6 @@ export default {
 
 .result-panel {
   color: $purple-x11;
-  font-size: $font-size-mobile;
   position: relative;
   display: none;
   opacity: 1;

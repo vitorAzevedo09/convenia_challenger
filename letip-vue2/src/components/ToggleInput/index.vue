@@ -33,13 +33,15 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/css/variables.scss';
+@import '../../assets/css/breakpoints.scss';
 
 .toggle {
   display: flex;
+  font-size: $font-size-mobile;
+
 
   &__text {
     font-weight: 800;
-    font-size: $font-size-mobile;
     text-align: center;
     margin: auto;
   }
@@ -56,10 +58,13 @@ export default {
         left: $width / 2;
       }
     }
+
   }
 
   &__control {
     transition: $transition;
+    margin: auto;
+    margin-inline: 1vw;
     width: $width;
     height: $height;
     border: 2px solid $color-checkbox-success;
@@ -79,6 +84,10 @@ export default {
       top: 0;
       left: 0;
     }
+  }
+
+  @include lg {
+    font-size: ($font-size-desktop)-0.4;
   }
 }
 </style>

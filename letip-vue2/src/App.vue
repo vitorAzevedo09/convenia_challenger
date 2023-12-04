@@ -2,11 +2,11 @@
   <div id="app" class="app">
     <div class="app__wrapper">
       <div class="app__header">
-        <h1 class="app__title">
+        <h1 class="app__header__title">
           Le Tip
-          <font-awesome-icon class="app__icon" icon="fa-solid fa-coins" bounce />
+          <font-awesome-icon class="app__header__title__icon" icon="fa-solid fa-coins" bounce />
         </h1>
-        <h2 class="app__subtitle">Because tip should be easier</h2>
+        <h2 class="app__header__subtitle">Because tip should be easier</h2>
       </div>
       <div class="app__content">
         <input-panel class="panel" :hide="!view" />
@@ -61,7 +61,7 @@ body {
 
 .app {
   box-shadow: 0px 4px 4px 0px #00000040, inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,9 +89,9 @@ body {
 
   &__content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 4vw;
     align-items: center;
-    gap: 10vw
   }
 
   &__button {

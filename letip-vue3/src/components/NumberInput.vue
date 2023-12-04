@@ -1,9 +1,9 @@
 <template>
   <label for="money_value" class="money">
     <span class="money__title">
-      {{ text }}:
+      {{ text }}: $
     </span>
-    $<input :value="value" id="money_value" type="number" min="0" @change="change($event)" class="money__input">
+    <input :value="value" id="money_value" type="number" min="0" @change="change($event)" class="money__input">
   </label>
 </template>
 
@@ -35,34 +35,40 @@ const change = (e: Event): void => {
   display: flex;
   justify-content: center;
   margin-top: 3vh;
-
-  font-weight: 800;
   font-size: $font-size-mobile;
-
-  @include lg {
-    font-size: $font-size-desktop;
-  }
+  font-weight: 800;
 
   &__title {
-    text-align: end;
+    margin: auto;
   }
 
   &__input {
     width: $width + 4;
-    height: ($height)-1;
+    height: $height+1;
+    margin: auto;
     font-weight: 800;
-    font-size: ($font-size-mobile)-0.5;
+    font-size: $font-size-mobile;
     color: $coin-color-contrast;
-    margin-left: 1vw;
     padding-right: 0.5vw;
     padding-left: 0.5vw;
     text-align: right;
     border: 2px solid $color-checkbox-success;
     border-radius: 2em;
 
+    @include lg {
+      font-size: $font-size-desktop;
+      width: $width;
+      height: $height;
+    }
+
     &:after {
       border: 2px solid $color-checkbox-success;
     }
+
+  }
+
+  @include lg {
+    font-size: $font-size-desktop;
   }
 
 }

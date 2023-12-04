@@ -49,14 +49,14 @@ export default {
   display: flex;
   justify-content: center;
   width: 100%;
+  font-size: $font-size-mobile;
 
   &__wrapper {
     display: flex;
     width: 100%;
-    margin-top: 1em;
+    margin-top: 2vh;
     flex-flow: column;
     font-weight: 800;
-    font-size: $font-size-mobile;
     text-align: center;
 
 
@@ -87,6 +87,10 @@ export default {
 
       accent-color: $coin-color;
     }
+  }
+
+  @include lg {
+    font-size: $font-size-desktop;
   }
 }
 </style>

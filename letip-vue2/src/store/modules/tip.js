@@ -63,35 +63,41 @@ const mutations = {
 const actions = {
     async getQuoteBRL({ commit, state } ) {
 
-    // Please upgrade your account to perform the request EUR -> BRL and you'll be able to run this code version
-    // const response = await apolloClient.query({
-    //   query: gql`
-    //     query LatestEuro {
-    //       latest(baseCurrency: "${state.currency}", quoteCurrencies: ["BRL"]) {
-    //         quote
-    //       }
-    //     }
-    //   `
-    // })
-       
-     const response = await apolloClient.query({
-       query: gql`
-         query {
-           latest(baseCurrency: "EUR", quoteCurrencies: ["BRL", "USD"]) {
-             quote
+      try{
+        
+       // Please upgrade your account to PREMIUM to perform the request USD -> BRL and you'll be able to run this code version
+       const response = await apolloClient.query({
+         query: gql`
+           query LatestEuro {
+             latest(baseCurrency: "${state.currency}", quoteCurrencies: ["BRL"]) {
+               quote
+             }
            }
-         }
-       `
-     })
-
-      let quote = 0
-      if(state.currency === "EUR"){
-        quote = response.data.latest[0].quote
-      } 
-      if (state.currency === "USD"){
-        quote = (1/response.data.latest[1].quote) * response.data.latest[0].quote
+         `
+       })
+        const quote  = response.data.latest[0].quote
+        commit('SET_QUOTE_BRL', quote)
+      }catch(e){
+       const response = await apolloClient.query({
+         query: gql`
+           query {
+             latest(baseCurrency: "EUR", quoteCurrencies: ["BRL", "USD"]) {
+               quote
+             }
+           }
+         `
+       })
+          
+        let quote = 0
+        if(state.currency === "EUR"){
+          quote = response.data.latest[0].quote
+        } 
+        if (state.currency === "USD"){
+          quote = (1/response.data.latest[1].quote) * response.data.latest[0].quote
+        }
+          
+          commit('SET_QUOTE_BRL', quote)
       }
-    commit('SET_QUOTE_BRL', quote)
   }
 }
 

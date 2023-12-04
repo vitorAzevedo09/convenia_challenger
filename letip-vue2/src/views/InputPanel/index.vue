@@ -83,6 +83,10 @@ export default {
   &__form {
     width: 100%;
   }
+  
+    @include lg {
+      display: inherit;
+    }
 
 }
 

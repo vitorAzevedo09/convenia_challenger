@@ -56,6 +56,8 @@ const change = (e: Event): void => {
 
   &__control {
     transition: $transition;
+    margin: auto;
+    margin-inline: 1vw;
     width: $width;
     height: $height;
     border: 2px solid $color-checkbox-success;

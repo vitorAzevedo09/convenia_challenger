@@ -50,12 +50,9 @@ const change = (e: Event): void => {
 .slider {
   display: flex;
   justify-content: center;
-  width: 100%;
 
   &__wrapper {
     display: flex;
-    width: 100%;
-    margin-top: 1em;
     flex-flow: column;
     font-weight: 800;
     font-size: $font-size-mobile;
@@ -79,6 +76,7 @@ const change = (e: Event): void => {
       &__range {
         width: 20vw;
         height: 2vh;
+        margin-top: 1vh;
 
         @include lg {
           width: 8vw;

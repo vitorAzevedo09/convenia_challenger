@@ -32,11 +32,11 @@ const { hide } = defineProps<Props>()
 .result-panel {
   color: $purple-x11;
   display: none;
-  font-size: $font-size-mobile;
   position: relative;
+  top: -2vh;
   opacity: 1;
   transition: hidden 0s, opacity $transition;
-  height: 36vh;
+  height: 45vh;
 
   @include lg {
     display: flex;

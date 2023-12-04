@@ -1,12 +1,12 @@
 @import './variables.scss';
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
   background: url("../imgs/coin-rain-slower.gif") 0 0;
   background-color: $purple-x11;
   background-size: 20%;
   overflow: hidden;
-  font-family: "Ubuntu Mono";
+  font-family: "Roboto";
   color: $main-brand-color;
   width: 100%;
   height: 100vh;

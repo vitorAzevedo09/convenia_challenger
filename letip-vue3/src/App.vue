@@ -52,14 +52,14 @@ const view: Ref<boolean> = ref<boolean>(true)
     padding: 2%;
     display: flex;
     align-items: center;
-    width: 40vw;
+    width: 80%;
     border-radius: 5%;
     align-items: center;
     flex-flow: column;
     justify-content: center;
 
     @include lg {
-      width: 40vw;
+      width: 40%;
     }
   }
 
@@ -70,12 +70,9 @@ const view: Ref<boolean> = ref<boolean>(true)
 
   &__content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 4vw;
     align-items: center;
-
-    @include lg {
-      gap: 10vw
-    }
   }
 
   &__button {
@@ -116,7 +113,7 @@ const view: Ref<boolean> = ref<boolean>(true)
   }
 
   &__footer {
-    padding-top: 2vh;
+
     display: flex;
     flex-flow: column;
 
@@ -128,7 +125,5 @@ const view: Ref<boolean> = ref<boolean>(true)
       }
     }
   }
-
-
 }
 </style>

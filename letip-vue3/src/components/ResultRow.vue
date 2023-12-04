@@ -29,20 +29,16 @@ const { title, money } = defineProps<Props>();
 
 .result {
   display: flex;
-  justify-content: center;
   margin-bottom: 1vh;
+  font-size: ($font-size-mobile)-0.5;
 
   &__wrapper {
     display: flex;
+    width: 100%;
     margin-top: 0.5vh;
     flex-flow: column;
-    font-size: $font-size-mobile;
     align-items: center;
-    justify-content: center;
 
-    @include lg {
-      font-size: $font-size-desktop;
-    }
 
     &__title {
       margin-bottom: 0.5em;
@@ -57,5 +53,8 @@ const { title, money } = defineProps<Props>();
     }
   }
 
+  @include lg {
+    font-size: ($font-size-desktop)-0.4;
+  }
 }
 </style>
