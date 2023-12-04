@@ -1,7 +1,11 @@
 import './assets/css/main.scss'
-import { createApp } from 'vue'
+import { createApp, provide, h } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
+import { DefaultApolloClient } from '@vue/apollo-composable'
+import apolloClient from './api/apolloClient.ts'
+
+
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -14,7 +18,12 @@ import { faCoins, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 /* add icons to the library */
 library.add(faCoins, faArrowUp)
 
-const app = createApp(App)
+const app = createApp({
+  setup(){
+    provide(DefaultApolloClient, apolloClient)
+  },
+  render: () => h(App)
+})
 
 app.use(createPinia())
 
