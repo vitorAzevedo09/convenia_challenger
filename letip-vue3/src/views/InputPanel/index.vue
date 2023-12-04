@@ -2,8 +2,8 @@
   <div>
     <div class="input-panel" :class="{ 'input-panel--visible': !hide }">
       <form action="" class="input-panel__form">
-        <toggle-input :left-text="{ text: '€ EUR', value: 'EUR' }" v-model:value="state.currency"
-          :right-text="{ text: '$ USD', value: 'USD' }" />
+        <toggle-input :left-text="{ text: '€ EUR', value: EUR }" v-model:value="state.currency"
+          :right-text="{ text: '$ USD', value: USD }" />
         <number-input :text="'Valor'" v-model:value="state.bill" />
         <slider-input :title="'Gorjeta'" v-model:value="state.tip_percentage" :min="10" :max="20" :is-percentage="true"
           class="input-panel__slider" />
@@ -15,14 +15,22 @@
 </template>
 
 <script setup lang="ts">
+import { USD, EUR } from '@/helpers/enums'
 import SliderInput from '@/components/SliderInput.vue'
 import ToggleInput from '@/components/ToogleInput.vue'
 import NumberInput from '@/components/NumberInput.vue'
 
 import { useTipStore } from '@/stores/tip';
 import { storeToRefs } from 'pinia';
+import { watch } from 'vue';
 
-const { state } = storeToRefs(useTipStore())
+const tipStore = useTipStore()
+
+const { state } = storeToRefs(tipStore)
+
+watch(state.value, () => {
+  tipStore.getBillBRL()
+})
 
 interface Props {
   hide: boolean,

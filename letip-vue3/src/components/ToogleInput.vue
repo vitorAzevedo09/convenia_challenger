@@ -17,6 +17,7 @@ interface Props {
     text: string,
     value: string
   }
+}
 
 const { leftText, rightText } = defineProps<Props>();
 

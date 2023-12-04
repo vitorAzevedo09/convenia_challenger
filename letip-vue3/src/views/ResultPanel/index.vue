@@ -4,7 +4,7 @@
     <result-row :title="'Gorjeta'" v-model:money="tip_money_currency_format" />
     <result-row :title="'Total'" v-model:money="total_bill_currency_format" />
     <result-row :title="'Por Pessoa'" v-model:money="per_person_currency_format" />
-    <result-row :title="'Em R$'" :money="'R$ 0.00'" />
+    <result-row :title="'Em R$'" v-model:money="total_bill_BRL" />
   </div>
 </template>
 
@@ -19,7 +19,8 @@ const {
   tip_money_currency_format,
   bill_currency_format,
   total_bill_currency_format,
-  per_person_currency_format
+  per_person_currency_format,
+  total_bill_BRL
 } = storeToRefs(tipStore)
 
 interface Props {

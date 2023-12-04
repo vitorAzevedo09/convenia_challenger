@@ -28,11 +28,6 @@ export const useTipStore = defineStore('tip', () => {
     state.quote_BRL = await getCurrentCurrencyQuote(state.currency)
   }
 
-  watch(total_bill, () => {
-    getBillBRL()
-  })
-
-
   return {
     state,
     tip_money,
