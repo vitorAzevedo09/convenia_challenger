@@ -2,7 +2,8 @@
   <div>
     <div class="input-panel" :class="{ 'input-panel--visible': !hide }">
       <form action="" class="input-panel__form">
-        <toggle-input :left-text="'€ EUR'" v-model:value="state.currency" :right-text="'$ USD'" />
+        <toggle-input :left-text="{ text: '€ EUR', value: 'EUR' }" v-model:value="state.currency"
+          :right-text="{ text: '$ USD', value: 'USD' }" />
         <number-input :text="'Valor'" v-model:value="state.bill" />
         <slider-input :title="'Gorjeta'" v-model:value="state.tip_percentage" :min="10" :max="20" :is-percentage="true"
           class="input-panel__slider" />

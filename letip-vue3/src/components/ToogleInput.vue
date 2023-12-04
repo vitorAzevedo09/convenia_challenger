@@ -1,17 +1,22 @@
 <template>
   <label for="input-checkbox" class="toggle">
-    <div class="toggle__text">{{ leftText }}</div>
+    <div class="toggle__text">{{ leftText.text }}</div>
     <input id="input-checkbox" type="checkbox" class="toggle__checkbox" @change="change($event)" />
     <div class="toggle__control"></div>
-    <div class="toggle__text">{{ rightText }}</div>
+    <div class="toggle__text">{{ rightText.text }}</div>
   </label>
 </template>
 
 <script setup lang="ts">
 interface Props {
-  leftText: string,
-  rightText: string
-}
+  leftText: {
+    text: string,
+    value: string
+  },
+  rightText: {
+    text: string,
+    value: string
+  }
 
 const { leftText, rightText } = defineProps<Props>();
 
@@ -22,7 +27,7 @@ const emit = defineEmits<{
 
 const change = (e: Event): void => {
   const value = (e.target as HTMLInputElement).checked
-  emit('update:value', value ? rightText : leftText)
+  emit('update:value', value ? rightText.value : leftText.value)
 }
 
 </script>
