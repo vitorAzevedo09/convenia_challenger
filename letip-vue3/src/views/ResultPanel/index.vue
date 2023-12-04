@@ -1,22 +1,26 @@
 <template>
   <div class="result-panel" :class="{ 'result-panel--visible': !hide }">
-    <result-row :title="'Conta'" :money="bill" />
-    <result-row :title="'Gorjeta'" :money="tip" />
-    <result-row :title="'Total'" :money="total_bill" />
-    <result-row :title="'Por Pessoa'" :money="per_person" />
-    <result-row :title="'Em R$'" :money="bill_BRL" />
+    <result-row :title="'Conta'" :money="bill_currency_format" />
+    <result-row :title="'Gorjeta'" v-model:money="tip_money_currency_format" />
+    <result-row :title="'Total'" v-model:money="total_bill_currency_format" />
+    <result-row :title="'Por Pessoa'" v-model:money="per_person_currency_format" />
+    <result-row :title="'Em R$'" :money="'R$ 0.00'" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, type Ref } from 'vue';
 import ResultRow from '@/components/ResultRow.vue'
+import { useTipStore } from '@/stores/tip';
+import { storeToRefs } from 'pinia';
 
-const bill: Ref<string> = ref<string>('R$ 0.00')
-const tip: Ref<string> = ref<string>('R$ 0.00')
-const total_bill: Ref<string> = ref<string>('R$ 0.00')
-const per_person: Ref<string> = ref<string>('R$ 0.00')
-const bill_BRL: Ref<string> = ref<string>('R$ 0.00')
+const tipStore = useTipStore()
+
+const {
+  tip_money_currency_format,
+  bill_currency_format,
+  total_bill_currency_format,
+  per_person_currency_format
+} = storeToRefs(tipStore)
 
 interface Props {
   hide: boolean
