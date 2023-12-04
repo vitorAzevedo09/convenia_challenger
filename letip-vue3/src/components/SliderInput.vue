@@ -11,7 +11,7 @@
         <div>
           {{ min }}<span class="slider__title__percentage" v-if="isPercentage">%</span>
         </div>
-        <input type="range" :min="min" :max="max" @change="change($event)" :value="value"
+        <input type="range" :min="min" :max="max" @input="updateValue($event)" :value="value"
           class="slider__wrapper__input__range" :id="`slider_${title}_value`">
         <div>
           {{ max }}<span class="slider__title__percentage" v-if="isPercentage">%</span>
@@ -33,12 +33,12 @@ interface Props {
 const { title, value, min, max, isPercentage } = defineProps<Props>()
 
 const emit = defineEmits<{
-  change: [value: number]
+  (event: 'update:value', value: number): void
 }>()
 
-const change = (e: Event): void => {
+const updateValue = (e: Event): void => {
   const value = (e.target as HTMLInputElement).value
-  emit('change', parseFloat(value))
+  emit('update:value', parseFloat(value))
 }
 
 </script>

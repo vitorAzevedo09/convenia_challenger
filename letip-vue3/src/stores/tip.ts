@@ -10,9 +10,9 @@ export const useTipStore = defineStore('tip', () => {
     quantity_peaplo: 2
   })
   
-const tip_money: Ref<number> = computed(() => (tip_percentage.value/100)*bill.value)
-const total_bill: Ref<number> = computed(() => (tip_money.value+bill.value))
-const per_person: Ref<number> = computed(() => (total_bill.value / quantity_peaplo.value))
+const tip_money: Ref<number> = computed(() => (state.tip_percentage/100)*state.bill)
+const total_bill: Ref<number> = computed(() => (state.tip_money+state.bill))
+const per_person: Ref<number> = computed(() => (state.total_bill / state.quantity_peaplo))
                                          
 
   return { 

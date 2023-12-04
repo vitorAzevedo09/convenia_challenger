@@ -16,13 +16,13 @@ interface Props {
 const { leftText, rightText } = defineProps<Props>();
 
 const emit = defineEmits<{
-  change: [value: boolean],
+  (event: 'update:value', value: string): string,
 }
 >()
 
 const change = (e: Event): void => {
   const value = (e.target as HTMLInputElement).checked
-  emit('change', value)
+  emit('update:value', value ? rightText : leftText)
 }
 
 </script>
@@ -46,7 +46,7 @@ const change = (e: Event): void => {
     // todo: a more SCSS way to handle this
     &:checked+.toggle__control {
       border-color: $color-checkbox-success;
-      background-color: $color-checkbox-success;
+      background-color: rgba(black, 0.06);
 
       &:after {
         left: calc($width / 2);
@@ -70,7 +70,7 @@ const change = (e: Event): void => {
       content: "";
       width: calc($width / 2);
       height: $height;
-      background-color: #fff;
+      background-color: $color-checkbox-success;
       border-radius: 50%;
       box-shadow: 0 1px 2px rgba(black, 0.4), 0 3px 2px rgba(black, 0.4);
       position: absolute;

@@ -37,11 +37,10 @@ export default {
 
 .toggle {
   display: flex;
-  font-size: $font-size-mobile;
-
 
   &__text {
     font-weight: 800;
+    font-size: $font-size-mobile;
     text-align: center;
     margin: auto;
   }
@@ -52,13 +51,12 @@ export default {
     // todo: a more SCSS way to handle this
     &:checked+.toggle__control {
       border-color: $color-checkbox-success;
-      background-color: $color-checkbox-success;
+      background-color: rgba(black, 0.06);
 
       &:after {
-        left: $width / 2;
+        left: calc($width / 2);
       }
     }
-
   }
 
   &__control {
@@ -75,19 +73,15 @@ export default {
     &:after {
       transition: $transition;
       content: "";
-      width: $width / 2;
+      width: calc($width / 2);
       height: $height;
-      background-color: #fff;
+      background-color: $color-checkbox-success;
       border-radius: 50%;
       box-shadow: 0 1px 2px rgba(black, 0.4), 0 3px 2px rgba(black, 0.4);
       position: absolute;
       top: 0;
       left: 0;
     }
-  }
-
-  @include lg {
-    font-size: ($font-size-desktop)-0.4;
   }
 }
 </style>

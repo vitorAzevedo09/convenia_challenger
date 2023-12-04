@@ -2,12 +2,12 @@
   <div>
     <div class="input-panel" :class="{ 'input-panel--visible': !hide }">
       <form action="" class="input-panel__form">
-        <toggle-input :left-text="'€ EUR'" :right-text="'$ USD'" />
-        <number-input :text="'Valor'" :value="state.bill" />
-        <slider-input :title="'Gorjeta'" :value="state.tip_percentage" :min="10" :max="20" :is-percentage="true"
+        <toggle-input :left-text="'€ EUR'" v-model:value="state.currency" :right-text="'$ USD'" />
+        <number-input :text="'Valor'" v-model:value="state.bill" />
+        <slider-input :title="'Gorjeta'" v-model:value="state.tip_percentage" :min="10" :max="20" :is-percentage="true"
           class="input-panel__slider" />
-        <slider-input :title="'Pessoas'" :value="state.quantity_peaplo" :min="2" :max="16" class="input-panel__slider"
-          :is-percentage="false" />
+        <slider-input :title="'Pessoas'" v-model:value="state.quantity_peaplo" :min="2" :max="16"
+          class="input-panel__slider" :is-percentage="false" />
       </form>
     </div>
   </div>
@@ -19,8 +19,9 @@ import ToggleInput from '@/components/ToogleInput.vue'
 import NumberInput from '@/components/NumberInput.vue'
 
 import { useTipStore } from '@/stores/tip';
+import { storeToRefs } from 'pinia';
 
-const { state } = useTipStore()
+const { state } = storeToRefs(useTipStore())
 
 interface Props {
   hide: boolean,

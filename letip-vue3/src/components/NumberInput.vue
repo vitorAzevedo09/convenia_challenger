@@ -3,7 +3,7 @@
     <span class="money__title">
       {{ text }}: $
     </span>
-    <input :value="value" id="money_value" type="number" min="0" @change="change($event)" class="money__input">
+    <input :value="value" id="money_value" type="number" min="0" @input="updateValue($event)" class="money__input">
   </label>
 </template>
 
@@ -17,13 +17,15 @@ interface Props {
 const { text, value } = defineProps<Props>();
 
 const emits = defineEmits<{
-  change: [value: number]
+  (event: 'update:value', value: number): void
 }>()
 
-const change = (e: Event): void => {
-  const value = (e.target as HTMLInputElement).valueAsNumber
-  emits('change', value)
+const updateValue = (e: Event): void => {
+  const value = (e.target as HTMLInputElement).value
+  emits('update:value', parseFloat(value))
 }
+
+
 
 </script>
 
@@ -38,9 +40,6 @@ const change = (e: Event): void => {
   font-size: $font-size-mobile;
   font-weight: 800;
 
-  &__title {
-    margin: auto;
-  }
 
   &__input {
     width: $width + 4;
@@ -57,7 +56,7 @@ const change = (e: Event): void => {
 
     @include lg {
       font-size: $font-size-desktop;
-      width: $width;
+      width: $width+5;
       height: $height;
     }
 
