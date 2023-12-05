@@ -1,10 +1,11 @@
 <template>
   <label for="money_value" class="money">
-    <span class="money__title">
-      {{ text }}: $
+    <span>
+      {{ text }}:
+      {{ symbol }}
+      <input :value="mask_money" id="money_value" type="number" min="0" @change="change($event.target.value)"
+        class="money__input">
     </span>
-    <input :value="value" id="money_value" type="number" min="0" @change="change($event.target.value)"
-      class="money__input">
   </label>
 </template>
 
@@ -18,7 +19,16 @@ export default {
     value: {
       type: Number,
       default: 0
+    },
+    symbol: {
+      type: String,
+      default: ""
     }
+  },
+  computed: {
+    mask_money() {
+      return this.value
+    },
   },
   methods: {
     change(value) {
@@ -44,22 +54,18 @@ export default {
   }
 
   &__input {
-    width: $width + 4;
+    width: $width + 10;
     height: $height+1;
     margin: auto;
     font-weight: 800;
     font-size: $font-size-mobile;
     color: $coin-color-contrast;
-    padding-right: 0.5vw;
-    padding-left: 0.5vw;
-    text-align: right;
+    text-align: left;
     border: 2px solid $color-checkbox-success;
     border-radius: 2em;
 
     @include lg {
       font-size: $font-size-desktop;
-      width: $width;
-      height: $height;
     }
 
     &:after {

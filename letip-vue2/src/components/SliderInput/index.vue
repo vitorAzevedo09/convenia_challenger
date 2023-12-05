@@ -11,7 +11,7 @@
         <div>
           {{ min }}<span class="slider__title__percentage" v-if="isPercentage">%</span>
         </div>
-        <input type="range" :min="min" :max="max" @change="change($event.target.value)" :value="value"
+        <input type="range" :min="min" :max="max" @input="change($event.target.value)" :value="value"
           class="slider__wrapper__input__range" :id="`slider_${title}_value`">
         <div>
           {{ max }}<span class="slider__title__percentage" v-if="isPercentage">%</span>
@@ -55,7 +55,7 @@ export default {
     display: flex;
     width: 100%;
     margin-top: 2vh;
-    flex-flow: column;
+    flex-direction: column;
     font-weight: 800;
     text-align: center;
 
@@ -70,12 +70,14 @@ export default {
 
     &__input {
       display: flex;
-      flex-flow: row;
       justify-content: center;
+      align-items: center;
+      gap: 5px;
       height: 2vh;
 
       &__range {
-        width: 20vw;
+        cursor: pointer;
+        width: 100%;
         height: 2vh;
 
         @include lg {

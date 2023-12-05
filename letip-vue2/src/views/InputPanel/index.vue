@@ -1,8 +1,9 @@
 <template>
   <div class="input-panel" :class="{ 'input-panel--visible': !hide }">
     <form action="" class="input-panel__form">
-      <toggle-input :left-text="'€ EUR'" :right-text="'$ USD'" :value="bill" @change="changeCurrency($event)" />
-      <number-input :text="'Valor'" :value="bill" @change="changeBill($event)" />
+      <toggle-input :left-text="'€ EUR'" :right-text="'$ USD'" @change="changeCurrency($event)" />
+      <number-input :text="'Valor'" :value="bill" :currency="'EUR'" :symbol="boolToogle ? '$' : '€'"
+        @change="changeBill($event)" />
       <slider :title="'Gorjeta'" style="margin-top: 2vh" :value="tip_percentage" :min="10" :max="20" :is-percentage="true"
         class="input-panel__slider" @change="changePercentage($event)" />
       <slider :title="'Pessoas'" :value="quantity_peaplo" :min="2" :max="16" class="input-panel__slider"
@@ -15,11 +16,17 @@
 import Slider from '../../components/SliderInput/index.vue'
 import NumberInput from '../../components/NumberInput/index.vue'
 import ToggleInput from '../../components/ToggleInput/index.vue'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   props: {
     hide: {
       type: Boolean,
       default: true
+    }
+  },
+  data() {
+    return {
+      boolToogle: true
     }
   },
   components: {
@@ -28,30 +35,23 @@ export default {
     ToggleInput
   },
   computed: {
-    bill() {
-      return this.$store.state.tip.bill
-    },
-    tip_percentage() {
-      return this.$store.state.tip.tip_percentage
-    },
-    quantity_peaplo() {
-      return this.$store.state.tip.quantity_peaplo
-    }
+    ...mapGetters({
+      bill: 'tip/getBill',
+      tip_percentage: 'tip/getTipPercentage',
+      quantity_peaplo: 'tip/getQuantityPeaplo',
+    })
   },
   methods: {
-    changeBill(value) {
-      this.$store.commit('tip/SET_BILL', value)
-    },
+    ...mapMutations({
+      changeBill: 'tip/SET_BILL',
+      changePercentage: 'tip/SET_TIP_PERCENTAGE',
+      changePeaploQuantity: 'tip/SET_PEAPLO_QUANTITY',
+    }),
     changeCurrency(value) {
+      this.boolToogle = value
       let currency = value ? "USD" : "EUR"
       this.$store.commit('tip/SET_CURRENCY', currency)
-    },
-    changePercentage(value) {
-      this.$store.commit('tip/SET_TIP_PERCENTAGE', value)
-    },
-    changePeaploQuantity(value) {
-      this.$store.commit('tip/SET_PEAPLO_QUANTITY', value)
-    },
+    }
   },
 }
 </script>
@@ -67,26 +67,33 @@ export default {
   opacity: 1;
   transition: hidden 0s, opacity $transition;
   align-content: start;
-  width: 100%;
-  height: 40vh;
+  height: 60vh;
 
   &--visible {
-    display: block;
+    display: inherit;
     -webkit-animation: fadeIn 0.3s;
     animation: fadeIn 0.3s;
 
     @include lg {
+      width: 50%;
       display: inherit;
     }
   }
 
   &__form {
-    width: 100%;
-  }
-  
-    @include lg {
-      display: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    &:nth-child(n) {
+      width: 100%;
     }
+  }
+
+  @include lg {
+    display: inherit;
+  }
 
 }
 

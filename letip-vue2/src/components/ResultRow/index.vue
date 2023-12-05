@@ -30,15 +30,12 @@ export default {
 .result {
   width: 100%;
   display: flex;
-  margin-bottom: 1vh;
   font-size: $font-size-mobile;
   position: relative;
-  top: -2.5vh;
 
   &__wrapper {
     display: flex;
     width: 100%;
-    margin-top: 0.5vh;
     flex-flow: column;
     align-items: center;
 

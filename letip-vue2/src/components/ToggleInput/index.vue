@@ -37,12 +37,12 @@ export default {
 
 .toggle {
   display: flex;
+  justify-content: center;
 
   &__text {
     font-weight: 800;
     font-size: $font-size-mobile;
     text-align: center;
-    margin: auto;
   }
 
   &__checkbox {
@@ -54,7 +54,7 @@ export default {
       background-color: rgba(black, 0.06);
 
       &:after {
-        left: calc($width / 2);
+        left: $width / 2;
       }
     }
   }
@@ -73,7 +73,7 @@ export default {
     &:after {
       transition: $transition;
       content: "";
-      width: calc($width / 2);
+      width: $width / 2;
       height: $height;
       background-color: $color-checkbox-success;
       border-radius: 50%;

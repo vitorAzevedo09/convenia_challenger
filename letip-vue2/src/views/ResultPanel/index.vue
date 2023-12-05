@@ -62,19 +62,19 @@ export default {
   position: relative;
   display: none;
   opacity: 1;
+  gap: 3vh;
   transition: hidden 0s, opacity $transition;
-  width: 100%;
-  height: 40vh;
 
   @include lg {
-    width: 70%;
     display: flex;
-    flex-flow: column;
-    align-content: baseline;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   &--visible {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     @include lg {
       display: inherit;

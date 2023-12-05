@@ -41,23 +41,10 @@ export default {
 
 <style lang="scss">
 @import '../node_modules/typeface-roboto/index.css';
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
 @import './assets/css/variables.scss';
 @import './assets/css/breakpoints.scss';
 
 
-body {
-  background: url("./assets/imgs/coin-rain-slower.gif") 0 0;
-  background-color: $purple-x11;
-  background-size: 20%;
-  overflow: hidden;
-  font-family: "Roboto";
-  color: $main-brand-color;
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
 
 .app {
   box-shadow: 0px 4px 4px 0px #00000040, inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
@@ -71,43 +58,64 @@ body {
     padding: 2%;
     display: flex;
     align-items: center;
-    width: 80%;
-    border-radius: 5%;
+    width: 90%;
+    border-radius: 25px;
     align-items: center;
     flex-flow: column;
     justify-content: center;
 
     @include lg {
-      width: 40%;
+      width: 40vw;
     }
   }
 
   &__header {
     text-align: center;
     font-family: 'Cedarville Cursive', cursive;
+    margin: 0px;
+
+    &__title {
+
+      @include lg {
+        margin: auto;
+      }
+    }
+
+    &__subtitle {
+      display: none;
+
+      @include lg {
+        display: inherit;
+      }
+    }
   }
 
   &__content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 4vw;
     align-items: center;
+
+    @include lg {
+      width: 100%;
+    }
   }
 
   &__button {
     display: inline-flex;
-    position: relative;
-    width: 40px;
-    height: 40px;
+    position: absolute;
+    bottom: 100px;
+    right: 70px;
+    width: 60px;
+    height: 60px;
     background: $purple-x11;
     border: 1px solid $coin-color;
     border-radius: 50%;
-    margin-left: 60%;
     color: white;
     text-align: center;
     justify-content: center;
     align-content: center;
-    font-size: $font-size-mobile;
+    font-size: 40px;
     z-index: 100;
     box-shadow: 0 10px 25px -5px rgba(44, 179, 240, 0.6);
     cursor: pointer;
@@ -138,6 +146,7 @@ body {
 
     &__image {
       height: 5vh;
+      padding: 10px;
 
       @include lg {
         height: 6vh;

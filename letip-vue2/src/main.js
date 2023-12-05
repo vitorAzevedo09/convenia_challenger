@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import store from './store/index.js'
+import './assets/css/main.scss'
 import App from './App.vue'
 import apolloClient from './api/vue-apollo.js'
 import { createApolloProvider } from '@vue/apollo-option'
@@ -17,7 +18,7 @@ import { faCoins, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 
-library.add(faCoins,faArrowUp)
+library.add(faCoins, faArrowUp)
 
 Vue.config.productionTip = false
 
