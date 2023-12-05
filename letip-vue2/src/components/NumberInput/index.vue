@@ -3,7 +3,7 @@
     <span>
       {{ text }}:
       {{ symbol }}
-      <input :value="mask_money" id="money_value" type="number" min="0" @input="change($event.target.value)"
+      <input :value="value" id="money_value" type="text" min="0" @input="change($event.target.value)"
         class="money__input">
     </span>
   </label>
@@ -25,17 +25,13 @@ export default {
       default: ""
     }
   },
-  computed: {
-    mask_money() {
-      return this.value.toFixed(2)
-    },
-  },
   methods: {
     change(value) {
-      if (this.value <= 0) {
-        this.$emit('change', parseFloat(value) * 10)
+      if (value === '') {
+        this.$emit('change', 0)
+      } else {
+        this.$emit('change', parseFloat(value))
       }
-      this.$emit('change', parseFloat(value))
     }
   }
 }
