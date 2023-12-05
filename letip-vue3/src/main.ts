@@ -3,7 +3,7 @@ import { createApp, provide, h } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
 import { DefaultApolloClient } from '@vue/apollo-composable'
-import apolloClient from './api/apolloClient.ts'
+import apolloClient from './api/apolloClient'
 
 
 /* import the fontawesome core */
@@ -19,7 +19,7 @@ import { faCoins, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 library.add(faCoins, faArrowUp)
 
 const app = createApp({
-  setup(){
+  setup() {
     provide(DefaultApolloClient, apolloClient)
   },
   render: () => h(App)
@@ -28,5 +28,5 @@ const app = createApp({
 app.use(createPinia())
 
 app
-  .component('font-awesome-icon',FontAwesomeIcon)
+  .component('font-awesome-icon', FontAwesomeIcon)
   .mount('#app')
