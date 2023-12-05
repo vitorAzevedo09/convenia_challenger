@@ -2,8 +2,8 @@
   <label for="money_value" class="money">
     <span class="money__title">
       {{ text }}: $
+      <input :value="value" id="money_value" type="number" min="0" @input="updateValue($event)" class="money__input">
     </span>
-    <input :value="value" id="money_value" type="number" min="0" @input="updateValue($event)" class="money__input">
   </label>
 </template>
 
@@ -44,13 +44,11 @@ const updateValue = (e: Event): void => {
   &__input {
     width: $width + 4;
     height: $height+1;
-    margin: auto;
     font-weight: 800;
     font-size: $font-size-mobile;
     color: $coin-color-contrast;
-    padding-right: 0.5vw;
-    padding-left: 0.5vw;
-    text-align: right;
+    padding-left: 1vw;
+    text-align: left;
     border: 2px solid $color-checkbox-success;
     border-radius: 2em;
 
