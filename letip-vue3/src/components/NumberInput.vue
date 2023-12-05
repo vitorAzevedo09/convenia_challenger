@@ -24,7 +24,11 @@ const emits = defineEmits<{
 
 const updateValue = (e: Event): void => {
   const value = (e.target as HTMLInputElement).value
-  emits('update:value', parseFloat(value))
+  if (value == "") {
+    emits('update:value', 0.0)
+  } else {
+    emits('update:value', parseFloat(value))
+  }
 }
 
 

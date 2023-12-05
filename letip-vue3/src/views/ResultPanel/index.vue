@@ -20,7 +20,7 @@ const {
   bill_currency_format,
   total_bill_currency_format,
   per_person_currency_format,
-  total_bill_BRL
+  total_bill_BRL,
 } = storeToRefs(tipStore)
 
 interface Props {

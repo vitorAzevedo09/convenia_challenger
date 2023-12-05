@@ -1,4 +1,4 @@
-import { reactive, computed, watch } from 'vue'
+import { reactive, computed } from 'vue'
 import { defineStore } from 'pinia'
 import currencyFormater from '../helpers/currency'
 import { getCurrentCurrencyQuote } from '@/api'

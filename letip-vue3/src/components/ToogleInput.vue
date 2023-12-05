@@ -47,10 +47,11 @@ const change = (e: Event): void => {
   }
 
   &__checkbox {
+    background: red;
     display: none;
 
     // todo: a more SCSS way to handle this
-    &:checked+.toggle__control {
+    &:checked+.toogle__control {
       border-color: $color-checkbox-success;
       background-color: rgba(black, 0.06);
 

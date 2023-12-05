@@ -16,7 +16,7 @@
 <script setup lang="ts">
 interface Props {
   title: string,
-  money: string
+  money: string,
 }
 
 const { title, money } = defineProps<Props>();
