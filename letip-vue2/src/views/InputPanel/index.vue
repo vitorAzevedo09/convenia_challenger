@@ -1,13 +1,13 @@
 <template>
   <div class="input-panel" :class="{ 'input-panel--visible': !hide }">
     <form action="" class="input-panel__form">
-      <toggle-input data-cy="checkbox" :left-text="'€ EUR'" :right-text="'$ USD'" @change="changeCurrency($event)" />
-      <number-input data-cy="input" :text="'Valor'" :value="bill" :currency="'EUR'" :symbol="boolToogle ? '$' : '€'"
+      <toggle-input data-cy="toogle" :left-text="'€ EUR'" :right-text="'$ USD'" @change="changeCurrency($event)" />
+      <number-input :text="'Valor'" :value="bill" :currency="'EUR'" :symbol="boolToogle ? '$' : '€'"
         @change="changeBill($event)" />
-      <slider data-cy="slider-percentage" :title="'Gorjeta'" style="margin-top: 2vh" :value="tip_percentage" :min="10"
-        :max="20" :is-percentage="true" class="input-panel__slider" @change="changePercentage($event)" />
-      <slider data-cy="slider-quantity-peaplo" :title="'Pessoas'" :value="quantity_peaplo" :min="2" :max="16"
-        class="input-panel__slider" @change="changePeaploQuantity($event)" />
+      <slider :title="'Gorjeta'" style="margin-top: 2vh" :value="tip_percentage" :min="10" :max="20" :is-percentage="true"
+        class="input-panel__slider" @change="changePercentage($event)" />
+      <slider :title="'Pessoas'" :value="quantity_peaplo" :min="2" :max="16" class="input-panel__slider"
+        @change="changePeaploQuantity($event)" />
     </form>
   </div>
 </template>

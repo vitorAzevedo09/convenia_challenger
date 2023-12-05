@@ -11,7 +11,7 @@
         <div>
           {{ min }}<span class="slider__title__percentage" v-if="isPercentage">%</span>
         </div>
-        <input type="range" :min="min" :max="max" @input="change($event.target.value)" :value="value"
+        <input type="range" data-cy="slider" :min="min" :max="max" @input="change($event.target.value)" :value="value"
           class="slider__wrapper__input__range" :id="`slider_${title}_value`">
         <div>
           {{ max }}<span class="slider__title__percentage" v-if="isPercentage">%</span>

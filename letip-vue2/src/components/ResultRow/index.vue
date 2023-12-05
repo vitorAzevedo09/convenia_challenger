@@ -5,7 +5,7 @@
         {{ title }}
       </div>
       <div class="result__wrapper__money">
-        <div>
+        <div data-cy="result">
           {{ money }}
         </div>
       </div>
