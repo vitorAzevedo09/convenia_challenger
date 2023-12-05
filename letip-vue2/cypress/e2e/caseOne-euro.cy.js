@@ -11,8 +11,8 @@ const OPTIONS = {
 describe('App Case One EUR', () => {
   it('Should do correct calculations', () => {
     cy.visit('http://localhost:8080')
-    cy.get('[data-cy="toogle"]').should('not.be.checked')
-    cy.get('[data-cy="test"]').clear().type(73.23).trigger('input')
+    cy.get('[data-cy="toogle-label"]').should('not.be.checked')
+    cy.get('[data-cy="value"]').clear().type(73.23).trigger('input')
     cy.get('[data-cy="slider"]').eq(0).invoke('val', 13).trigger('input')
     cy.get('[data-cy="slider"]').eq(1).invoke('val', 10).trigger('input')
 
@@ -25,7 +25,7 @@ describe('App Case One EUR', () => {
     cy.request(OPTIONS).then((response => {
       const quote_BRL = response.body[0].quote
       const money_format = currencyFormat("BRL", (quote_BRL * 82.75))
-      cy.get(".result__wrapper__money").eq(4).first().should('have.text', ` ${money_format} `)
+      cy.get('[data-cy="result"]').eq(4).first().should('have.text', ` ${money_format} `)
     }))
 
   })

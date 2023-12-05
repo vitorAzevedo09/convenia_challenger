@@ -1,7 +1,7 @@
 <template>
   <div class="input-panel" :class="{ 'input-panel--visible': !hide }">
     <form action="" class="input-panel__form">
-      <toggle-input data-cy="toogle" :left-text="'€ EUR'" :right-text="'$ USD'" @change="changeCurrency($event)" />
+      <toggle-input :left-text="'€ EUR'" :right-text="'$ USD'" @change="changeCurrency($event)" />
       <number-input :text="'Valor'" :value="bill" :currency="'EUR'" :symbol="boolToogle ? '$' : '€'"
         @change="changeBill($event)" />
       <slider :title="'Gorjeta'" style="margin-top: 2vh" :value="tip_percentage" :min="10" :max="20" :is-percentage="true"

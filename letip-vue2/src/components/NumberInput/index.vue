@@ -3,7 +3,7 @@
     <span>
       {{ text }}:
       {{ symbol }}
-      <input data-cy="test" :value="value" id="money_value" type="text" min="0" @input="change($event.target.value)"
+      <input data-cy="value" :value="value" id="money_value" type="text" min="0" @input="change($event.target.value)"
         class="money__input">
     </span>
   </label>

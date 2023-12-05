@@ -1,7 +1,8 @@
 <template>
-  <label for="input-checkbox" class="toggle">
+  <label data-cy="toogle-label" for="input-checkbox" class="toggle">
     <div class="toggle__text">{{ leftText }}</div>
-    <input id="input-checkbox" type="checkbox" class="toggle__checkbox" @change="change($event.target.checked)" />
+    <input data-cy="toogle-input" id="input-checkbox" type="checkbox" class="toggle__checkbox"
+      @change="change($event.target.checked)" />
     <div class="toggle__control"></div>
     <div class="toggle__text">{{ rightText }}</div>
   </label>
