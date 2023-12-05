@@ -1,4 +1,4 @@
-import { USD, BRL } from "@/helpers/enums"
+import { USD, BRL } from "./enums"
 
 export default function(currency: string, price: number) {
   let encode_language = "en-GB"
@@ -9,6 +9,7 @@ export default function(currency: string, price: number) {
   const money = new Intl.NumberFormat(encode_language, {
     style: 'currency',
     currency: currency,
+    roundingMode: 'ceil'
   })
   return money.format(price)
 }

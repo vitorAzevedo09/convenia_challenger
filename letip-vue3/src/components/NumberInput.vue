@@ -2,7 +2,8 @@
   <label for="money_value" class="money">
     <span class="money__title">
       {{ text }}: {{ symbol }}
-      <input :value="value" id="money_value" type="number" min="0" @input="updateValue($event)" class="money__input">
+      <input data-cy="value" :value="value" id="money_value" type="number" min="0" @input="updateValue($event)"
+        class="money__input">
     </span>
   </label>
 </template>

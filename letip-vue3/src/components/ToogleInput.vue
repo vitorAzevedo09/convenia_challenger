@@ -1,9 +1,9 @@
 <template>
-  <label for="input-checkbox" class="toggle">
-    <div class="toggle__text">{{ leftText.text }}</div>
-    <input id="input-checkbox" type="checkbox" class="toggle__checkbox" @change="change($event)" />
-    <div class="toggle__control"></div>
-    <div class="toggle__text">{{ rightText.text }}</div>
+  <label for="input-checkbox" data-cy="toogle-label" class="toogle">
+    <div class="toogle__text">{{ leftText.text }}</div>
+    <input id="input-checkbox" type="checkbox" data-cy="toogle-input" class="toogle__checkbox" @change="change($event)" />
+    <div class="toogle__control"></div>
+    <div class="toogle__text">{{ rightText.text }}</div>
   </label>
 </template>
 
@@ -36,7 +36,7 @@ const change = (e: Event): void => {
 <style scoped lang="scss">
 @import '../assets/css/variables.scss';
 
-.toggle {
+.toogle {
   display: flex;
 
   &__text {
