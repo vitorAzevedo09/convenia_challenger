@@ -1,68 +1,99 @@
-# letip-vue3
+# Letip Vue 3 Version 
 
-This template should help get you started developing with Vue 3 in Vite.
+## Description
 
-## Recommended IDE Setup
+Letip project builded with vue 3.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Table of Contents
 
-## Type Support for `.vue` Imports in TS
+- [How to Run](#how-to-run)
+  - [Docker](#docker)
+  - [Package Manager](#package-manager)
+- [How to Run Tests](#how-to-run-tests)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## How to Run
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+### Docker
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+To run the Vue 3 application using Docker, follow these steps:
 
-## Customize configuration
+1. Ensure that Docker is installed on your machine.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+2. Clone the repository:
 
-## Project Setup
+    ```bash
+    git clone https://github.com/vitorAzevedo09/convenia_challenger.git
+    ```
 
-```sh
-npm install
-```
+3. Navigate to the project directory:
 
-### Compile and Hot-Reload for Development
+    ```bash
+    cd letip-vue3
+    ```
+4. Copy the `.env.example` file and rename it to `.env`, then fill in the necessary variables:
 
-```sh
-npm run dev
-```
+    ```bash
+    cp .env.example .env
+    ```
+5. Build the Docker image:
 
-### Type-Check, Compile and Minify for Production
+    ```bash
+    docker build -t your-image-name .
+    ```
 
-```sh
-npm run build
-```
+6. Run the Docker container:
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+    ```bash
+    docker run -p 5173:5173 your-image-name
+    ```
 
-```sh
-npm run test:unit
-```
+7. Open your browser and go to [http://localhost:5173/](http://localhost:5173/) to view the application.
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+### Package Manager
 
-```sh
+To run the Vue 3 application using a package manager (e.g., npm or yarn), follow these steps:
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/vitorAzevedo09/convenia_challenger.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd letip-vue3
+    ```
+    
+3. Copy the `.env.example` file and rename it to `.env`, then fill in the necessary variables:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+4. Install dependencies:
+
+    ```bash
+    npm install 
+    # or
+    yarn install
+    ```
+
+5. Run the application:
+
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
+
+6. Open your browser and go to [http://localhost:5173/](http://localhost:5173/) to view the application.
+
+## How to Run Tests
+
+To run tests with mockup data, use the following commands:
+
+```bash
 npm run test:e2e:dev
-```
-
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+# or
+yarn test:e2e:dev
