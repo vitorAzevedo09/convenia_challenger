@@ -4,7 +4,7 @@
       <form action="" class="input-panel__form">
         <toggle-input :left-text="{ text: '€ EUR', value: EUR }" v-model:value="state.currency"
           :right-text="{ text: '$ USD', value: USD }" />
-        <number-input :text="'Valor'" v-model:value="state.bill" />
+        <number-input :text="'Valor'" v-model:value="state.bill" :symbol="state.currency == 'EUR' ? '€' : '$'" />
         <slider-input :title="'Gorjeta'" v-model:value="state.tip_percentage" :min="10" :max="20" :is-percentage="true"
           class="input-panel__slider" />
         <slider-input :title="'Pessoas'" v-model:value="state.quantity_peaplo" :min="2" :max="16"
