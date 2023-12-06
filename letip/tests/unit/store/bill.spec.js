@@ -1,11 +1,11 @@
 // Import the Vuex store module
-import billModule from '../../src/store/modules/tip.js';
+import billModule from '@/store/modules/bill.js';
 
 // Destructure the relevant parts from the module
 const { state, getters, mutations, actions } = billModule;
 
 // Mock Apollo Client and GraphQL response
-jest.mock('../../src/api/vue-apollo.js', () => ({
+jest.mock('@/api/vue-apollo.js', () => ({
   query: jest.fn()
 }));
 
@@ -65,7 +65,7 @@ describe('Bill Vuex Module', () => {
       };
 
       // Mock Apollo Client query function to return the response
-      require('../../src/api/vue-apollo.js').query.mockResolvedValueOnce(mockResponse);
+      require('@/api/vue-apollo.js').query.mockResolvedValueOnce(mockResponse);
 
       // Call the action
       await actions.getQuoteBRL({ commit: mockCommit, state: mockState });

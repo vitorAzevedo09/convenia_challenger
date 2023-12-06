@@ -36,21 +36,20 @@ export default {
   },
   computed: {
     ...mapGetters({
-      bill: 'tip/getBill',
-      tip_percentage: 'tip/getTipPercentage',
-      quantity_peaplo: 'tip/getQuantityPeaplo',
+      bill: 'bill/getBill',
+      tip_percentage: 'bill/getTipPercentage',
+      quantity_peaplo: 'bill/getQuantityPeaplo',
     })
   },
   methods: {
     ...mapMutations({
-      changeBill: 'tip/SET_BILL',
-      changePercentage: 'tip/SET_TIP_PERCENTAGE',
-      changePeaploQuantity: 'tip/SET_PEAPLO_QUANTITY',
+      changeBill: 'bill/SET_BILL',
+      changePercentage: 'bill/SET_TIP_PERCENTAGE',
+      changePeaploQuantity: 'bill/SET_PEAPLO_QUANTITY',
     }),
     changeCurrency(value) {
       this.boolToogle = value
-      let currency = value ? "USD" : "EUR"
-      this.$store.commit('tip/SET_CURRENCY', currency)
+      this.$store.commit('bill/SET_CURRENCY', this.boolToogle ? "USD" : "EUR")
     }
   },
 }

@@ -22,32 +22,32 @@ export default {
   },
   computed: {
     symbol() {
-      if (this.$store.state.tip.currency === 'EUR')
+      if (this.$store.state.bill.currency === 'EUR')
         return '€'
       return '$'
     },
     bill() {
-      return this.$store.getters['tip/billMoney']
+      return this.$store.getters['bill/billMoney']
     },
     tip() {
-      return this.$store.getters['tip/tipCurrency']
+      return this.$store.getters['bill/tipCurrency']
     },
     total_bill() {
-      return this.$store.getters['tip/billTotalCurrency']
+      return this.$store.getters['bill/billTotalCurrency']
     },
     per_person() {
-      return this.$store.getters['tip/billEachPersonCurrency']
+      return this.$store.getters['bill/billEachPersonCurrency']
     },
     bill_BRL() {
-      return this.$store.getters['tip/billTotalBRL']
+      return this.$store.getters['bill/billTotalBRL']
     }
   },
   created() {
-    this.$store.dispatch('tip/getQuoteBRL')
+    this.$store.dispatch('bill/getQuoteBRL')
   },
   watch: {
     total_bill() {
-      this.$store.dispatch('tip/getQuoteBRL')
+      this.$store.dispatch('bill/getQuoteBRL')
     }
   }
 }
