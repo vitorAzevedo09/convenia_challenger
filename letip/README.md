@@ -91,9 +91,17 @@ To run the Vue.js application using a package manager (e.g., npm or yarn), follo
 
 ## How to Run Tests
 
-To run tests with mockup data, use the following commands:
+To run unit tests with mockup data, use the following commands:
+
+```bash
+npm run test:unit
+# or
+yarn test:unit
+```
+To run e2e tests with mockup data, use the following commands:
 
 ```bash
 npm run test:e2e
 # or
 yarn test:e2e
+```
