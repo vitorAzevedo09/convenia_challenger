@@ -21,21 +21,7 @@ Therefore, the calculation may be uncertain due to the black-box nature of how t
 - Docker
 
 the deployed versin can be accessed in: [Version Vue 2](https://convenia-challenger.web.app/) deployed in firebase. 
-If you wanna run the project locale, or more informations about test, please read the [vue 2 version documentation](https://github.com/vitorAzevedo09/convenia_challenger/blob/main/letip-vue2/how-to-run.md)
-
-#### Technologies and Libraries Used For Version 3
-
-- NodeJs
-- Vue composition api
-- Pinia
-- Apollo GraphQL
-- SCSS
-- Cypress
-- Docker
-- Typescript
-
-the deployed versin can be accessed in: [Version Vue 3](https://convenia-challenger.vercel.app/). 
-If you wanna run the project locale, or more informations about tests, please read the [vue 3 version documentation](https://github.com/vitorAzevedo09/convenia_challenger/blob/main/letip-vue3/how-to-run.md)
+If you wanna run the project locale, or more informations about test, please read the [vue 2 version documentation](https://github.com/vitorAzevedo09/convenia_challenger/blob/main/letip-vue2/README.md)
 
 
 ### Author
