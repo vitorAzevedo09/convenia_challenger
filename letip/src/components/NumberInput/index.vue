@@ -38,13 +38,15 @@ export default {
       price: this.value,
       money: {
         precision: 2,
-        masked: true
       }
     }
   },
   watch: {
     price() {
-      return this.$emit('change', parseFloat(this.price))
+      if (this.price < 0) {
+        this.price = 0
+      }
+      return this.$emit('change', this.price)
     }
   }
 }
@@ -73,9 +75,9 @@ export default {
     border-radius: 2em;
 
     @include lg {
-      font-size: $font-size-desktop;
+      font-size: ($font-size-desktop)-1;
       width: $width + 8;
-      height: $height+1;
+      height: ($height);
     }
 
     &:after {

@@ -31,24 +31,22 @@ export default {
   width: 100%;
   display: flex;
   font-size: $font-size-mobile;
-  position: relative;
 
   &__wrapper {
     display: flex;
     width: 100%;
-    flex-flow: column;
+    flex-direction: column;
     align-items: center;
 
-
     &__title {
-      margin-bottom: 0.5em;
+      margin-bottom: 0.2em;
       font-weight: 800;
     }
 
     &__money {
       color: $coin-color-contrast;
       display: flex;
-      flex-flow: row;
+      flex-direction: row;
       justify-content: center;
       width: 100%;
     }
