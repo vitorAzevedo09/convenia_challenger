@@ -62,6 +62,7 @@ export default {
   margin-top: 3vh;
   font-size: $font-size-mobile;
   font-weight: 800;
+  text-align: center;
 
 
   &__input {
@@ -75,7 +76,6 @@ export default {
     border-radius: 2em;
 
     @include lg {
-      font-size: ($font-size-desktop)-1;
       width: $width + 8;
       height: ($height);
     }

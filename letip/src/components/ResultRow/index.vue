@@ -26,7 +26,6 @@ export default {
 @import "../../assets/css/breakpoints.scss";
 
 .result {
-  width: 100%;
   display: flex;
   font-size: $font-size-mobile;
   margin-top: 3vh;
@@ -51,8 +50,5 @@ export default {
     }
   }
 
-  @include lg {
-    font-size: ($font-size-desktop)-0.5;
-  }
 }
 </style>

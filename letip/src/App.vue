@@ -73,7 +73,6 @@ export default {
   &__header {
     text-align: center;
     font-family: 'Cedarville Cursive', cursive;
-    height: 0px;
     font-size: ($font-size-mobile)-1;
 
     &__title {
