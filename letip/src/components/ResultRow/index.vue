@@ -4,10 +4,8 @@
       <div class="result__wrapper__title">
         {{ title }}
       </div>
-      <div class="result__wrapper__money">
-        <div data-cy="result">
-          {{ money }}
-        </div>
+      <div data-cy="result" class="result__wrapper__money">
+        {{ money }}
       </div>
     </div>
   </div>

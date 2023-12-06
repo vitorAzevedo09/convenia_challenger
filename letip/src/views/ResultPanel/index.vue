@@ -1,10 +1,10 @@
 <template>
   <div class="result-panel" :class="{ 'result-panel--visible': !hide }">
-    <result-row :title="'Conta'" :money="bill" />
-    <result-row :title="'Gorjeta'" :money="tip" />
-    <result-row :title="'Total'" :money="total_bill" />
-    <result-row :title="'Por Pessoa'" :money="per_person" />
-    <result-row :title="'Em R$'" :money="bill_BRL" />
+    <result-row data-cy="bill" :title="'Conta'" :money="bill" />
+    <result-row data-cy="tip" :title="'Gorjeta'" :money="tip" />
+    <result-row data-cy="total-bill" :title="'Total'" :money="total_bill" />
+    <result-row data-cy="per-person" :title="'Por Pessoa'" :money="per_person" />
+    <result-row data-cy="bill-BRL" :title="'Em R$'" :money="bill_BRL" />
   </div>
 </template>
 
