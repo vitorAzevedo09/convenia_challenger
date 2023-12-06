@@ -1,16 +1,20 @@
 <template>
-  <label for="money_value" class="money">
+  <label class="money">
     <span>
       {{ text }}:
       {{ symbol }}
-      <input data-cy="value" :value="value" id="money_value" type="text" min="0" @input="change($event.target.value)"
-        class="money__input">
+      <money class="money__input" data-cy="price" v-bind="money" v-model="price" />
     </span>
   </label>
 </template>
 
 <script>
+import { Money } from 'v-money'
+
 export default {
+  components: {
+    Money
+  },
   props: {
     text: {
       type: String,
@@ -20,18 +24,27 @@ export default {
       type: Number,
       default: 0
     },
+    currency: {
+      type: String,
+      default: "EUR"
+    },
     symbol: {
       type: String,
-      default: ""
+      default: "€"
     }
   },
-  methods: {
-    change(value) {
-      if (value === '') {
-        this.$emit('change', 0)
-      } else {
-        this.$emit('change', parseFloat(value))
+  data() {
+    return {
+      price: this.value,
+      money: {
+        precision: 2,
+        masked: true
       }
+    }
+  },
+  watch: {
+    price() {
+      return this.$emit('change', parseFloat(this.price))
     }
   }
 }
@@ -48,9 +61,6 @@ export default {
   font-size: $font-size-mobile;
   font-weight: 800;
 
-  &__title {
-    margin: auto;
-  }
 
   &__input {
     width: $width + 5;

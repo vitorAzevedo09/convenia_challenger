@@ -1,6 +1,6 @@
 <template>
   <div class="input-panel" :class="{ 'input-panel--visible': !hide }">
-    <form action="" class="input-panel__form">
+    <form id="form" name="form" action="" class="input-panel__form">
       <toggle-input :left-text="'€ EUR'" :right-text="'$ USD'" @change="changeCurrency($event)" />
       <number-input :text="'Valor'" :value="bill" :currency="'EUR'" :symbol="boolToogle ? '$' : '€'"
         @change="changeBill($event)" />

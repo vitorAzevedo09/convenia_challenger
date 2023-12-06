@@ -4,6 +4,7 @@ import './assets/css/main.scss'
 import App from './App.vue'
 import apolloClient from './api/vue-apollo.js'
 import { createApolloProvider } from '@vue/apollo-option'
+import money from 'v-money'
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -25,6 +26,8 @@ Vue.config.productionTip = false
 const apolloProvider = createApolloProvider({
   defaultClient: apolloClient,
 })
+
+Vue.use(money, { precision: 4 })
 
 new Vue({
   render: h => h(App),
