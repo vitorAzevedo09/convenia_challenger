@@ -10,6 +10,7 @@
 
 <script>
 import ResultRow from '../../components/ResultRow/index.vue'
+import { mapGetters } from 'vuex'
 export default {
   props: {
     hide: {
@@ -20,30 +21,20 @@ export default {
   components: {
     ResultRow
   },
+
   computed: {
+    ...mapGetters({
+      bill: 'bill/billMoney',
+      tip: 'bill/tipCurrency',
+      bill_BRL: 'bill/billTotalBRL',
+      total_bill: 'bill/billTotalCurrency',
+      per_person: 'bill/billEachPersonCurrency',
+    }),
     symbol() {
       if (this.$store.state.bill.currency === 'EUR')
         return '€'
       return '$'
     },
-    bill() {
-      return this.$store.getters['bill/billMoney']
-    },
-    tip() {
-      return this.$store.getters['bill/tipCurrency']
-    },
-    total_bill() {
-      return this.$store.getters['bill/billTotalCurrency']
-    },
-    per_person() {
-      return this.$store.getters['bill/billEachPersonCurrency']
-    },
-    bill_BRL() {
-      return this.$store.getters['bill/billTotalBRL']
-    }
-  },
-  created() {
-    this.$store.dispatch('bill/getQuoteBRL')
   },
   watch: {
     total_bill() {

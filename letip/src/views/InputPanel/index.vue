@@ -1,7 +1,7 @@
 <template>
   <div class="input-panel" :class="{ 'input-panel--visible': !hide }">
     <form id="form" name="form" action="" class="input-panel__form">
-      <toggle-input :left-text="'€ EUR'" :right-text="'$ USD'" @change="changeCurrency($event)" />
+      <toggle-input :left-text="'€ EUR'" :right-text="'$ USD'" @change="setCurrency($event)" />
       <number-input :text="'Valor'" :value="bill" :currency="'EUR'" :symbol="boolToogle ? '$' : '€'"
         @change="changeBill($event)" />
       <slider :title="'Gorjeta'" style="margin-top: 2vh" :value="tip_percentage" :min="10" :max="20" :is-percentage="true"
@@ -46,10 +46,11 @@ export default {
       changeBill: 'bill/SET_BILL',
       changePercentage: 'bill/SET_TIP_PERCENTAGE',
       changePeaploQuantity: 'bill/SET_PEAPLO_QUANTITY',
+      changeCurrency: 'bill/SET_CURRENCY'
     }),
-    changeCurrency(value) {
+    setCurrency(value) {
       this.boolToogle = value
-      this.$store.commit('bill/SET_CURRENCY', this.boolToogle ? "USD" : "EUR")
+      this.changeCurrency(this.boolToogle ? "USD" : "EUR")
     }
   },
 }
