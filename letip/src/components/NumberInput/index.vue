@@ -3,7 +3,7 @@
     <span>
       {{ text }}:
       {{ symbol }}
-      <money class="money__input" data-cy="price" v-bind="money" v-model="price" />
+      <money class="money__input" data-cy="value" v-bind="money" v-model="price" />
     </span>
   </label>
 </template>

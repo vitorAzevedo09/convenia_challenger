@@ -13,7 +13,7 @@ describe('App Case Three USD', () => {
     cy.visit('http://localhost:8080')
     cy.get('[data-cy="toogle-label"]').click()
     cy.get('[data-cy="toogle-input"]').should('be.checked')
-    cy.get('[data-cy="value"]').clear().type(13).trigger('input')
+    cy.get('[data-cy="value"]').clear().type("13.00").trigger('input')
     cy.get('[data-cy="slider"]').eq(0).invoke('val', 15).trigger('input')
     cy.get('[data-cy="slider"]').eq(1).invoke('val', 2).trigger('input')
 
