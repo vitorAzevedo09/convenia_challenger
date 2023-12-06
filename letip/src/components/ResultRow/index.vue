@@ -31,6 +31,7 @@ export default {
   width: 100%;
   display: flex;
   font-size: $font-size-mobile;
+  margin-top: 3vh;
 
   &__wrapper {
     display: flex;

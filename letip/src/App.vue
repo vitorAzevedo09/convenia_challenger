@@ -62,7 +62,8 @@ export default {
     border-radius: 25px;
     align-items: center;
     flex-flow: column;
-    justify-content: center;
+    justify-content: space-between;
+    height: 80vh;
 
     @include lg {
       width: 40vw;
@@ -72,7 +73,7 @@ export default {
   &__header {
     text-align: center;
     font-family: 'Cedarville Cursive', cursive;
-    margin: 0px;
+    height: 0px;
 
     &__title {
 
@@ -94,6 +95,7 @@ export default {
     display: flex;
     justify-content: center;
     gap: 4vw;
+    height: 100%;
     align-items: center;
 
     @include lg {
@@ -140,7 +142,6 @@ export default {
   }
 
   &__footer {
-
     display: flex;
     flex-flow: column;
 

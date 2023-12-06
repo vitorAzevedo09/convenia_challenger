@@ -61,17 +61,14 @@ export default {
   color: $purple-x11;
   position: relative;
   display: none;
-  height: 60vh;
   opacity: 1;
-  gap: 3vh;
   transition: hidden 0s, opacity $transition;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
+  height: 100%;
 
   @include lg {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
 
   &--visible {

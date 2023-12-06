@@ -67,7 +67,6 @@ export default {
   opacity: 1;
   transition: hidden 0s, opacity $transition;
   align-content: start;
-  height: 60vh;
 
   &--visible {
     display: inherit;
