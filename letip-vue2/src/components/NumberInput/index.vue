@@ -63,7 +63,7 @@ export default {
 
 
   &__input {
-    width: $width + 5;
+    width: $width + 15;
     height: $height+1;
     font-weight: 800;
     font-size: $font-size-mobile;
@@ -74,6 +74,8 @@ export default {
 
     @include lg {
       font-size: $font-size-desktop;
+      width: $width + 8;
+      height: $height+1;
     }
 
     &:after {
