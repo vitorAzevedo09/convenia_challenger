@@ -8,13 +8,13 @@
         </span>
       </div>
       <div class="slider__wrapper__input">
-        <div>
-          {{ min }}<span class="slider__title__percentage" v-if="isPercentage">%</span>
+        <div class="slider__wrapper__input__min">
+          {{ min }}<span class="slider__wrapper__input__percentage" v-if="isPercentage">%</span>
         </div>
         <input type="range" data-cy="slider" :min="min" :max="max" @input="change($event.target.value)" :value="value"
           class="slider__wrapper__input__range" :id="`slider_${title}_value`">
-        <div>
-          {{ max }}<span class="slider__title__percentage" v-if="isPercentage">%</span>
+        <div class="slider__wrapper__input__max">
+          {{ max }}<span class="slider__wrapper__input__percentage" v-if="isPercentage">%</span>
         </div>
       </div>
     </label>
@@ -57,13 +57,17 @@ export default {
     flex-direction: column;
     font-weight: 800;
     text-align: center;
+    gap: 5px;
 
 
     &__title {
+      text-align: left;
 
       &__value {
         color: $coin-color-contrast;
       }
+
+
     }
 
     &__input {
@@ -71,6 +75,12 @@ export default {
       justify-content: center;
       align-items: center;
       gap: 5px;
+
+      &__min,
+      &__max {
+        width: 75px;
+      }
+
 
       &__range {
         cursor: pointer;

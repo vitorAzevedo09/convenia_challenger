@@ -56,8 +56,8 @@ export default {
   transition: hidden 0s, opacity $transition;
   flex-direction: column;
   justify-content: center;
-  width: 300px;
-  gap: 10px;
+  min-width: 300px;
+  gap: 15px;
   height: 100%;
 
   @include lg {

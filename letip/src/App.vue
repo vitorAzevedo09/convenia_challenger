@@ -57,7 +57,7 @@ export default {
     background-color: $white;
     display: flex;
     align-items: baseline;
-    width: 400px;
+    min-width: 400px;
     border-radius: 25px;
     align-items: center;
     flex-flow: column;
