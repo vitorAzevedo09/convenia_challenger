@@ -18,6 +18,7 @@ Therefore, the calculation may be uncertain due to the black-box nature of how t
 - SCSS
 - Firebase Tools (CLI)
 - Cypress
+- Jtest
 - Docker
 
 the deployed versin can be accessed in: [Version Vue 2](https://convenia-challenger.web.app/) deployed in firebase. 
