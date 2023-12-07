@@ -28,7 +28,7 @@ To run the Vue.js application using Docker, follow these steps:
 3. Navigate to the project directory:
 
     ```bash
-    cd letip-vue2
+    cd letip
     ```
 4. Copy the `.env.example` file and rename it to `.env`, then fill in the necessary variables:
 
@@ -62,7 +62,7 @@ To run the Vue.js application using a package manager (e.g., npm or yarn), follo
 2. Navigate to the project directory:
 
     ```bash
-    cd letip-vue2
+    cd letip
     ```
     
 3. Copy the `.env.example` file and rename it to `.env`, then fill in the necessary variables:
