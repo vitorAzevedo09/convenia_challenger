@@ -132,9 +132,6 @@ Some issues, problems or discussion about the project
 ##### About e2e tests
 
  - E2E **in BRL** result calculations maybe return error because in test i calculating with fixed value and in the project code i retrieving from a sequence of calculations: decimal places issue.
- - E2E test with cypress in Case Four Dolar/Euro its given an error in **Per person** test, please check the calculation on [convenia examples](challenger-description.md)
- - E2E test with cypress in Case Three Dolar/Euro its given an error in **Per person** test, please check the calculation on [convenia examples](challenger-description.md)
-
 
 ### Author
 
