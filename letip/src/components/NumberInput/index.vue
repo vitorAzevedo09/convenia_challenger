@@ -58,9 +58,12 @@ export default {
   display: flex;
   font-size: $font-size;
   font-weight: 800;
+  justify-content: center;
+  align-items: center;
 
   &__input {
     margin-left: 10px;
+    max-width: 150px;
     font-weight: 800;
     font-size: 1rem;
     color: $coin-color-contrast;

@@ -61,7 +61,7 @@ export default {
 
 
     &__title {
-      text-align: left;
+      text-align: center;
 
       &__value {
         color: $coin-color-contrast;

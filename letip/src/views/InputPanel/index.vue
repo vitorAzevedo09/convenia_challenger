@@ -68,7 +68,7 @@ export default {
   transition: hidden 0s, opacity $transition;
 
   &--visible {
-    display: inherit;
+    display: flex;
     -webkit-animation: fadeIn 0.3s;
     animation: fadeIn 0.3s;
 
@@ -83,6 +83,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     gap: 40px;
+    max-width: 300px;
 
   }
 

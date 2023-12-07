@@ -47,17 +47,18 @@ export default {
 
 
 .app {
-  box-shadow: 0px 4px 4px 0px #00000040, inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 4px 0px #00000040, inset 0 0 0 5000px rgba(0, 0, 0, 0.3);
   height: 100vh;
   display: flex;
   align-items: center;
+  overflow: auto;
   justify-content: center;
 
   &__wrapper {
     background-color: $white;
     display: flex;
     align-items: baseline;
-    min-width: 400px;
+    min-width: 360px;
     border-radius: 25px;
     align-items: center;
     flex-flow: column;
@@ -65,7 +66,7 @@ export default {
     height: 600px;
 
     @include lg {
-      width: 800px;
+      min-width: 800px;
       height: 700px;
     }
   }
@@ -76,11 +77,7 @@ export default {
     margin: 0px;
     padding: 0px;
 
-    &__title {
-      height: 10px;
-    }
-
-    &__subtitle {
+    g &__subtitle {
       display: none;
 
       @include lg {
@@ -105,7 +102,7 @@ export default {
 
   &__button {
     position: relative;
-    bottom: 0px;
+    bottom: 25px;
     left: 100px;
     width: 55px;
     height: 80px;
@@ -141,8 +138,12 @@ export default {
   }
 
   &__footer {
-    display: flex;
     flex-flow: column;
+    display: none;
+
+    @include lg {
+      display: flex;
+    }
 
     &__image {
       height: 5rem;

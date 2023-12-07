@@ -67,6 +67,7 @@ export default {
   &--visible {
     display: flex;
     justify-content: center;
+    gap: 10px;
 
     @include lg {
       display: inherit;
