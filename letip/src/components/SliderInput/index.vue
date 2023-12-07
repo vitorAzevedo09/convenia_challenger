@@ -49,19 +49,17 @@ export default {
   display: flex;
   justify-content: center;
   width: 100%;
-  font-size: $font-size-mobile;
+  font-size: $font-size;
 
   &__wrapper {
     display: flex;
     width: 100%;
-    margin-top: 2vh;
     flex-direction: column;
     font-weight: 800;
     text-align: center;
 
 
     &__title {
-      margin-bottom: 0.5em;
 
       &__value {
         color: $coin-color-contrast;
@@ -73,26 +71,16 @@ export default {
       justify-content: center;
       align-items: center;
       gap: 5px;
-      height: 2vh;
 
       &__range {
         cursor: pointer;
         width: 100%;
         height: 2vh;
-
-        @include lg {
-          width: 8vw;
-          height: 2vh;
-        }
-
       }
 
       accent-color: $coin-color;
     }
   }
 
-  @include lg {
-    font-size: $font-size-desktop;
-  }
 }
 </style>

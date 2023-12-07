@@ -42,7 +42,7 @@ export default {
 
   &__text {
     font-weight: 800;
-    font-size: $font-size-mobile;
+    font-size: $font-size;
     text-align: center;
   }
 
@@ -62,10 +62,10 @@ export default {
 
   &__control {
     transition: $transition;
-    margin: auto;
-    margin-inline: 1vw;
     width: $width;
     height: $height;
+    margin: auto 0px;
+    margin-inline: 20px;
     border: 2px solid $color-checkbox-success;
     border-radius: $height;
     background-color: rgba(black, 0.06);

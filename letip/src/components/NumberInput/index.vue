@@ -1,10 +1,8 @@
 <template>
   <label class="money">
-    <span>
-      {{ text }}:
-      {{ symbol }}
-      <money class="money__input" data-cy="value" v-bind="money" v-model="price" />
-    </span>
+    {{ text }}:
+    {{ symbol }}
+    <money class="money__input" data-cy="value" v-bind="money" v-model="price" />
   </label>
 </template>
 
@@ -58,36 +56,22 @@ export default {
 
 .money {
   display: flex;
-  justify-content: center;
-  margin-top: 3vh;
-  font-size: $font-size-mobile;
+  font-size: $font-size;
   font-weight: 800;
-  text-align: center;
-
 
   &__input {
-    width: $width + 15;
-    height: $height+1;
+    margin-left: 10px;
     font-weight: 800;
-    font-size: $font-size-mobile;
+    font-size: 1rem;
     color: $coin-color-contrast;
-    text-align: left;
     border: 2px solid $color-checkbox-success;
-    border-radius: 2em;
-
-    @include lg {
-      width: $width + 8;
-      height: ($height);
-    }
+    border-radius: 25px;
+    height: $height;
 
     &:after {
       border: 2px solid $color-checkbox-success;
     }
 
-  }
-
-  @include lg {
-    font-size: $font-size-desktop;
   }
 
 }

@@ -4,7 +4,7 @@
       <toggle-input :left-text="'€ EUR'" :right-text="'$ USD'" @change="setCurrency($event)" />
       <number-input :text="'Valor'" :value="bill" :currency="'EUR'" :symbol="boolToogle ? '$' : '€'"
         @change="changeBill($event)" />
-      <slider :title="'Gorjeta'" style="margin-top: 2vh" :value="tip_percentage" :min="10" :max="20" :is-percentage="true"
+      <slider :title="'Gorjeta'" :value="tip_percentage" :min="10" :max="20" :is-percentage="true"
         class="input-panel__slider" @change="changePercentage($event)" />
       <slider :title="'Pessoas'" :value="quantity_peaplo" :min="2" :max="16" class="input-panel__slider"
         @change="changePeaploQuantity($event)" />
@@ -66,7 +66,6 @@ export default {
   position: relative;
   opacity: 1;
   transition: hidden 0s, opacity $transition;
-  align-content: start;
 
   &--visible {
     display: inherit;
@@ -74,20 +73,17 @@ export default {
     animation: fadeIn 0.3s;
 
     @include lg {
-      width: 50%;
       display: inherit;
     }
   }
 
   &__form {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 40px;
 
-    &:nth-child(n) {
-      width: 100%;
-    }
   }
 
   @include lg {

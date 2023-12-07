@@ -56,6 +56,8 @@ export default {
   transition: hidden 0s, opacity $transition;
   flex-direction: column;
   justify-content: center;
+  width: 300px;
+  gap: 10px;
   height: 100%;
 
   @include lg {
@@ -64,6 +66,7 @@ export default {
 
   &--visible {
     display: flex;
+    justify-content: center;
 
     @include lg {
       display: inherit;

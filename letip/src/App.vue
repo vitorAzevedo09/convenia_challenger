@@ -55,31 +55,29 @@ export default {
 
   &__wrapper {
     background-color: $white;
-    padding: 2%;
     display: flex;
-    align-items: center;
-    width: 90%;
+    align-items: baseline;
+    width: 400px;
     border-radius: 25px;
     align-items: center;
     flex-flow: column;
     justify-content: space-between;
-    height: 80vh;
+    height: 600px;
 
     @include lg {
-      width: 40vw;
+      width: 800px;
+      height: 700px;
     }
   }
 
   &__header {
     text-align: center;
     font-family: 'Cedarville Cursive', cursive;
-    font-size: ($font-size-mobile)-1;
+    margin: 0px;
+    padding: 0px;
 
     &__title {
-
-      @include lg {
-        margin: auto;
-      }
+      height: 10px;
     }
 
     &__subtitle {
@@ -94,9 +92,11 @@ export default {
   &__content {
     display: flex;
     justify-content: center;
-    gap: 4vw;
     height: 100%;
-    align-items: center;
+
+    &__panel {
+      width: 50%;
+    }
 
     @include lg {
       width: 100%;
@@ -104,15 +104,14 @@ export default {
   }
 
   &__button {
-    display: inline-flex;
-    position: absolute;
-    bottom: 100px;
-    right: 70px;
-    width: 60px;
-    height: 60px;
+    position: relative;
+    bottom: 0px;
+    left: 100px;
+    width: 55px;
+    height: 80px;
     background: $purple-x11;
     border: 1px solid $coin-color;
-    border-radius: 50%;
+    border-radius: 50px;
     color: white;
     text-align: center;
     justify-content: center;
@@ -146,11 +145,10 @@ export default {
     flex-flow: column;
 
     &__image {
-      height: 5vh;
-      padding: 10px;
+      height: 5rem;
 
       @include lg {
-        height: 6vh;
+        height: 6rem;
       }
     }
   }

@@ -27,8 +27,7 @@ export default {
 
 .result {
   display: flex;
-  font-size: $font-size-mobile;
-  margin-top: 3vh;
+  font-size: $font-size;
 
   &__wrapper {
     display: flex;
@@ -37,7 +36,6 @@ export default {
     align-items: center;
 
     &__title {
-      margin-bottom: 0.2em;
       font-weight: 800;
     }
 
