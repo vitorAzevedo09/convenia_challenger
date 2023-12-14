@@ -55,7 +55,7 @@ const updateValue = (e: Event): void => {
     display: flex;
     flex-flow: column;
     font-weight: 800;
-    font-size: $font-size-mobile;
+    font-size: $font-size;
     text-align: center;
 
 

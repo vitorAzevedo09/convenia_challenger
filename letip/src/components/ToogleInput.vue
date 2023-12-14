@@ -41,7 +41,7 @@ const change = (e: Event): void => {
 
   &__text {
     font-weight: 800;
-    font-size: $font-size-mobile;
+    font-size: $font-size;
     text-align: center;
     margin: auto;
   }

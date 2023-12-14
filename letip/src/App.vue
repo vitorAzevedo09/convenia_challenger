@@ -21,6 +21,7 @@
         <img src="./assets/imgs/coin-stacked.gif" class="main__footer__image" />
       </footer>
     </div>
+    <Toasts :toasts="toasts" />
   </main>
 </template>
 
@@ -28,67 +29,88 @@
 import { ref, type Ref } from 'vue'
 import InputPanel from "./views/InputPanel/index.vue"
 import ResultPanel from "./views/ResultPanel/index.vue"
+import Toasts from '@/components/Toasts.vue'
+import { useToastStore } from './stores/toasts';
 
 const view: Ref<boolean> = ref<boolean>(true)
+const { toasts } = useToastStore()
 
 </script>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
-@import './assets/css/variables.scss';
-@import './assets/css/breakpoints.scss';
+@import '@/assets/css/variables.scss';
+@import '@/assets/css/breakpoints.scss';
 
 
 
 .main {
-  box-shadow: 0px 4px 4px 0px #00000040, inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 4px 0px #00000040, inset 0 0 0 5000px rgba(0, 0, 0, 0.3);
   height: 100vh;
   display: flex;
   align-items: center;
+  overflow: auto;
   justify-content: center;
 
   &__wrapper {
     background-color: $white;
-    padding: 2%;
     display: flex;
-    align-items: center;
-    width: 80%;
-    border-radius: 5%;
+    align-items: baseline;
+    min-width: 360px;
+    border-radius: 25px;
     align-items: center;
     flex-flow: column;
-    justify-content: center;
+    justify-content: space-between;
+    height: 600px;
 
     @include lg {
-      width: 40%;
+      min-width: 800px;
+      height: 700px;
     }
   }
 
   &__header {
     text-align: center;
     font-family: 'Cedarville Cursive', cursive;
+    margin: 0px;
+    padding: 0px;
+
+    g &__subtitle {
+      display: none;
+
+      @include lg {
+        display: inherit;
+      }
+    }
   }
 
   &__content {
     display: flex;
-    justify-content: space-between;
-    gap: 4vw;
-    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    &__panel {
+      width: 50%;
+    }
+
+    @include lg {
+      width: 100%;
+    }
   }
 
   &__button {
-    display: inline-flex;
     position: relative;
-    width: 40px;
-    height: 40px;
+    bottom: 25px;
+    left: 100px;
+    width: 50px;
+    height: 80px;
     background: $purple-x11;
     border: 1px solid $coin-color;
-    border-radius: 50%;
-    margin-left: 60%;
+    border-radius: 50px;
     color: white;
     text-align: center;
     justify-content: center;
     align-content: center;
-    font-size: $font-size-mobile;
+    font-size: 40px;
     z-index: 100;
     box-shadow: 0 10px 25px -5px rgba(44, 179, 240, 0.6);
     cursor: pointer;
@@ -113,15 +135,18 @@ const view: Ref<boolean> = ref<boolean>(true)
   }
 
   &__footer {
-
-    display: flex;
     flex-flow: column;
+    display: none;
+
+    @include lg {
+      display: flex;
+    }
 
     &__image {
-      height: 5vh;
+      height: 5rem;
 
       @include lg {
-        height: 6vh;
+        height: 6rem;
       }
     }
   }

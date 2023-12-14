@@ -48,30 +48,29 @@ const { hide } = defineProps<Props>()
   position: relative;
   opacity: 1;
   transition: hidden 0s, opacity $transition;
-  align-content: start;
-  width: 100%;
-  height: 45vh;
-
-  &__slider {
-    margin-top: 3vh
-  }
+  height: 100%;
 
   &--visible {
-    display: block;
+    display: flex;
     -webkit-animation: fadeIn 0.3s;
     animation: fadeIn 0.3s;
+    justify-content: center;
 
     @include lg {
-      display: inherit;
+      display: flex;
     }
   }
 
   &__form {
-    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
   }
 
   @include lg {
-    display: inherit;
+    display: flex;
   }
 
 }

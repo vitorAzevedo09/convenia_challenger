@@ -29,32 +29,26 @@ const { title, money } = defineProps<Props>();
 
 .result {
   display: flex;
-  margin-bottom: 1vh;
-  font-size: ($font-size-mobile)-0.5;
+  font-size: $font-size;
 
   &__wrapper {
     display: flex;
     width: 100%;
-    margin-top: 0.5vh;
-    flex-flow: column;
+    flex-direction: column;
     align-items: center;
 
-
     &__title {
-      margin-bottom: 0.5em;
       font-weight: 800;
     }
 
     &__money {
       color: $coin-color-contrast;
       display: flex;
-      flex-flow: row;
+      flex-direction: row;
       justify-content: center;
+      width: 100%;
     }
   }
 
-  @include lg {
-    font-size: ($font-size-desktop)-0.4;
-  }
 }
 </style>

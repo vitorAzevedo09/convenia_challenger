@@ -15,4 +15,5 @@ const apolloClient = new ApolloClient({
   cache,
 })
 
+
 export default apolloClient

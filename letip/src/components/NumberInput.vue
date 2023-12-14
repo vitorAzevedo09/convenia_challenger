@@ -41,37 +41,25 @@ const updateValue = (e: Event): void => {
 
 .money {
   display: flex;
-  justify-content: center;
-  margin-top: 3vh;
-  font-size: $font-size-mobile;
+  font-size: $font-size;
   font-weight: 800;
-
+  justify-content: center;
+  align-items: center;
 
   &__input {
-    width: $width + 4;
-    height: $height+1;
+    margin-left: 10px;
+    max-width: 60px;
     font-weight: 800;
-    font-size: $font-size-mobile;
+    font-size: 1rem;
     color: $coin-color-contrast;
-    padding-left: 1vw;
-    text-align: left;
     border: 2px solid $color-checkbox-success;
-    border-radius: 2em;
-
-    @include lg {
-      font-size: $font-size-desktop;
-      width: $width+5;
-      height: $height;
-    }
+    border-radius: 25px;
+    height: $height;
 
     &:after {
       border: 2px solid $color-checkbox-success;
     }
 
-  }
-
-  @include lg {
-    font-size: $font-size-desktop;
   }
 
 }

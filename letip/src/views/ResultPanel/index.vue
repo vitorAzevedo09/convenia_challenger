@@ -36,20 +36,24 @@ const { hide } = defineProps<Props>()
 
 .result-panel {
   color: $purple-x11;
-  display: none;
   position: relative;
-  top: -2vh;
+  display: none;
   opacity: 1;
   transition: hidden 0s, opacity $transition;
-  height: 45vh;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 300px;
+  gap: 15px;
+  height: 100%;
 
   @include lg {
     display: flex;
-    flex-flow: column;
   }
 
   &--visible {
-    display: block;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 
     @include lg {
       display: inherit;
@@ -58,8 +62,6 @@ const { hide } = defineProps<Props>()
     -webkit-animation: fadeIn 0.3s;
     animation: fadeIn 0.3s;
   }
-
-
 }
 
 @keyframes fadeIn {

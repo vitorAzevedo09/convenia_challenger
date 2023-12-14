@@ -2,9 +2,12 @@ import { reactive, computed } from 'vue'
 import { defineStore } from 'pinia'
 import currencyFormater from '../helpers/currency'
 import { getCurrentCurrencyQuote } from '@/api'
+import { useToastStore } from './toasts'
+import type { ApolloError } from '@apollo/client'
 
 
 export const useTipStore = defineStore('tip', () => {
+  const toastStore = useToastStore()
 
   const state = reactive({
     bill: 0,
@@ -25,7 +28,16 @@ export const useTipStore = defineStore('tip', () => {
   const total_bill_BRL = computed(() => currencyFormater(state.currency, total_bill.value * state.quote_BRL))
 
   const getBillBRL = async (): Promise<void> => {
-    state.quote_BRL = await getCurrentCurrencyQuote(state.currency)
+    try {
+      state.quote_BRL = await getCurrentCurrencyQuote(state.currency)
+    } catch (e) {
+      const error = e as ApolloError
+      toastStore.addToast({
+        type: "error",
+        title: error.name,
+        message: error.message
+      })
+    }
   }
 
   return {
