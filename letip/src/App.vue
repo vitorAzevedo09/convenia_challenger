@@ -55,7 +55,7 @@ const { toasts } = useToastStore()
     background-color: $white;
     display: flex;
     align-items: baseline;
-    min-width: 360px;
+    min-width: 380px;
     border-radius: 25px;
     align-items: center;
     flex-flow: column;

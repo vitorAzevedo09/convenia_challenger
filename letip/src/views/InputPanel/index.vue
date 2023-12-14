@@ -67,6 +67,7 @@ const { hide } = defineProps<Props>()
     flex-direction: column;
     justify-content: center;
     gap: 40px;
+    width: 380px;
   }
 
   @include lg {
